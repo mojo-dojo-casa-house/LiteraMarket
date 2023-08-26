@@ -24,7 +24,8 @@ const Users = sequelize.define('Users', {
 
 Users.associate = (models) => {
     Users.hasMany(models.Address);
-    Users.hasMany(models.Contact)
+    Users.hasMany(models.Contact);
+    Users.hasMany(models.PaymentMethod);
 }
 
 module.exports = Users;
