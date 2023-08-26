@@ -22,4 +22,8 @@ const Users = sequelize.define('Users', {
     },
 })
 
+Users.associate = (models) => {
+    Users.hasMany(models.Address);
+}
+
 module.exports = Users;
