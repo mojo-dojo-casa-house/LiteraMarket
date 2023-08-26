@@ -21,6 +21,7 @@ module.exports = sequelize;
 
 require('../models/Users');
 require('../models/Address');
+require('../models/Contact');
 
 for (mod in sequelize.models) {
   if (sequelize.models[mod].associate instanceof Function) {
