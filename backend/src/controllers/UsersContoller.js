@@ -1,3 +1,4 @@
+const avaliationModel = require('../models/Avaliation');
 const usersModel = require('../models/Users');
 
 const create = async (req, res) => {
@@ -63,10 +64,25 @@ const destroy = async (req, res) => {
     }
 }
 
+const avaliation = async (req, res) => {
+    const { idAvaliator } = req.params;
+    try {
+        const avaliation = await avaliationModel.create({
+            avaliatorId: idAvaliator,
+            availedId: req.body.userAvalied,
+            score: req.body.score
+        });
+        return res.status(200).json(avaliation)
+    } catch (err) {
+        return res.status(500).json({error:err});
+    }
+}
+
 module.exports = {
     create,
     index,
     show,
     update,
-    destroy
+    destroy,
+    avaliation
 }
