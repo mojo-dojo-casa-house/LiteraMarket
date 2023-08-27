@@ -10,9 +10,6 @@ const Avaliation = sequelize.define('Avaliations', {
             max: 5,
             isNumeric: true
         }
-    },
-    comment: {
-        type: DataTypes.TEXT
     }
 })
 
