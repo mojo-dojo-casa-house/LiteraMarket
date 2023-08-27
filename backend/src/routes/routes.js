@@ -16,6 +16,7 @@ const contactController = require('../controllers/ContactController');
 
 router.post('/user/:id/contact/create', contactController.create);
 router.get('/user/:id/contact', contactController.index);
-
+router.put('/user/:id/contact/update', contactController.update);
+router.delete('/user/:UserId/contact/delete', contactController.destroy)
 
 module.exports = router;
