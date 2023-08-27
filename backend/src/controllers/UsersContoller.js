@@ -14,20 +14,20 @@ const create = async (req, res) => {
             UserId: user.id,
         })
         return res.status(201).json({
-            message: 'Usuário Cadastrado com sucesso', 
+            message: 'Usuário Cadastrado com sucesso',
             user: user
         });
     } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
 const index = async (req, res) => {
     try {
         const users = await usersModel.findAll();
-        return res.status(200).json({users:users});
+        return res.status(200).json({ users: users });
     } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
@@ -37,17 +37,17 @@ const show = async (req, res) => {
         const user = await usersModel.findByPk(id);
         return res.status(200).json({
             message: 'Usuário encontrado',
-            user:user
+            user: user
         })
     } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
 const update = async (req, res) => {
     const { id } = req.params;
     try {
-        const [updated] = await usersModel.update(req.body, {where: {id:id}});
+        const [updated] = await usersModel.update(req.body, { where: { id: id } });
         if (updated) {
             const user = await usersModel.findByPk(id);
             res.status(200).json({
@@ -57,20 +57,20 @@ const update = async (req, res) => {
         }
         else throw new Error();
     } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
 const destroy = async (req, res) => {
     const { id } = req.params;
     try {
-        const deleted = await usersModel.destroy({where:{id:id}});
-        await authModel.destroy({where:{UserId:id}});
-        if (deleted){
-            return res.status(200).json({message: 'Usuário deletado com sucesso'})
+        const deleted = await usersModel.destroy({ where: { id: id } });
+        await authModel.destroy({ where: { UserId: id } });
+        if (deleted) {
+            return res.status(200).json({ message: 'Usuário deletado com sucesso' })
         } else throw new Error();
     } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
@@ -84,38 +84,30 @@ const avaliate = async (req, res) => {
         });
         return res.status(200).json(avaliation)
     } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
-const avaliations = async (req,res) => {
-    const {id} = req.params;
+const avaliations = async (req, res) => {
+    const { id } = req.params;
     try {
         const user = await usersModel.findByPk(id);
         const avaliations = await user.getAvalied();
         return res.status(200).json(avaliations);
     } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
-const changePass = async (req,res) => {
-    const {id} = req.params;
+const changePass = async (req, res) => {
+    const { id } = req.params;
     try {
-        const [updated] = await authModel.update(req.body, {where: {UserId:id}});
-        if(updated)
-            return res.status(201).json({message:'Senha alterada com sucesso'});
+        const [updated] = await authModel.update(req.body, { where: { UserId: id } });
+        if (updated)
+            return res.status(201).json({ message: 'Senha alterada com sucesso' });
         else throw new Error();
     } catch (err) {
-        return res.status(500).json({error:err});
-    }
-}
-
-const login = async (req,res) => {
-    try {
-        
-    } catch (err) {
-        return res.status(500).json({error:err});
+        return res.status(500).json({ error: err });
     }
 }
 
@@ -127,5 +119,5 @@ module.exports = {
     destroy,
     avaliate,
     avaliations,
-    changePass
+    changePass,
 }
