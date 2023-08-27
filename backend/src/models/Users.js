@@ -28,12 +28,12 @@ Users.associate = (models) => {
     Users.hasMany(models.PaymentMethod);
     Users.belongsToMany(models.Users, {
         through: 'Avaliations',
-        as: 'avaliator',
+        as: 'Avaliator',
         foreignKey: 'avaliatorId'
     })
     Users.belongsToMany(models.Users, {
         through: 'Avaliations',
-        as: 'avalied',
+        as: 'Avalied',
         foreignKey: 'availedId'
     })
 }
