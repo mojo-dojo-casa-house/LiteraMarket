@@ -24,6 +24,7 @@ require('../models/Address');
 require('../models/Contact');
 require('../models/PaymentMethod');
 require('../models/Avaliation');
+require('../models/Auth');
 
 for (mod in sequelize.models) {
   if (sequelize.models[mod].associate instanceof Function) {
