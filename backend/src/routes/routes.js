@@ -15,5 +15,7 @@ router.post('/user/:id/changepass', usersController.changePass);
 const contactController = require('../controllers/ContactController');
 
 router.post('/user/:id/contact/create', contactController.create);
+router.get('/user/:id/contact', contactController.index);
+
 
 module.exports = router;

@@ -16,7 +16,21 @@ const create = async (req,res) => {
     }
 }
 
+const index = async (req,res) => {
+    const { id } = req.params;
+    try {
+        const contact = await contactModel.findAll({
+            where: {
+                UserId: id
+            }
+        })
+        return res.status(200).json(contact);
+    } catch (err) {
+        return res.status(500).json({error:err});
+    }
+}
+
 module.exports = {
     create,
-
+    index,
 }
