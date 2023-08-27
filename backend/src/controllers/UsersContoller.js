@@ -56,8 +56,8 @@ const destroy = async (req, res) => {
     try {
         const deleted = await usersModel.destroy({where:{id:id}});
         if (deleted){
-            return res.staus(200).json({message: 'Usuário deletado com sucesso'})
-        }
+            return res.status(200).json({message: 'Usuário deletado com sucesso'})
+        } else throw new Error();
     } catch (err) {
         return res.status(500).json({error:err});
     }
