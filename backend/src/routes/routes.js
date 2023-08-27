@@ -10,5 +10,6 @@ router.put('/user/:id', usersController.update);
 router.delete('/user/:id', usersController.destroy);
 router.post('/user/:idAvaliator/avaliate', usersController.avaliate);
 router.get('/user/:id/avaliations', usersController.avaliations);
+router.post('/user/:id/changepass', usersController.changePass);
 
 module.exports = router;

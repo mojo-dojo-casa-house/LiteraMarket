@@ -99,6 +99,26 @@ const avaliations = async (req,res) => {
     }
 }
 
+const changePass = async (req,res) => {
+    const {id} = req.params;
+    try {
+        const [updated] = await authModel.update(req.body, {where: {UserId:id}});
+        if(updated)
+            return res.status(201).json({message:'Senha alterada com sucesso'});
+        else throw new Error();
+    } catch (err) {
+        return res.status(500).json({error:err});
+    }
+}
+
+const login = async (req,res) => {
+    try {
+        
+    } catch (err) {
+        return res.status(500).json({error:err});
+    }
+}
+
 module.exports = {
     create,
     index,
@@ -106,5 +126,6 @@ module.exports = {
     update,
     destroy,
     avaliate,
-    avaliations
+    avaliations,
+    changePass
 }
