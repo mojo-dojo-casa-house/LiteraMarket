@@ -26,4 +26,11 @@ router.get('/user/:userId/Address', addressController.index);
 router.put('/user/:userId/Address/update', addressController.update);
 router.delete('/user/:userId/Address/delete', addressController.destroy);
 
+const paymentController = require('../controllers/PaymentCardsController');
+
+router.post('/user/:userId/paymentCards/addCard', paymentController.create);
+router.get('/user/:userId/paymentCards', paymentController.index);
+router.put('/user/:userId/paymentCards/update', paymentController.update);
+router.delete('/user/:userId/paymentCards/delete', paymentController.destroy);
+
 module.exports = router;
