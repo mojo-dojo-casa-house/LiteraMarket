@@ -33,4 +33,10 @@ router.get('/user/:userId/paymentCards', paymentController.index);
 router.put('/user/:userId/paymentCards/update', paymentController.update);
 router.delete('/user/:userId/paymentCards/delete', paymentController.destroy);
 
+const pixKeysController = require('../controllers/PixKeysController');
+
+router.post('/user/:userId/pixkeys/add', pixKeysController.create);
+router.get('/user/:userId/pixkeys', pixKeysController.index);
+router.delete('/user/:userId/pixkeys/delete', pixKeysController.destroy);
+
 module.exports = router;

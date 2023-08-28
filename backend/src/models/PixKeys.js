@@ -2,8 +2,13 @@ const DataTypes = require('sequelize');
 const sequelize = require('../config/sequelize');
 
 const PixKeys = sequelize.define('PixKeys', {
-    pixKey:{
+    type: {
         type: DataTypes.STRING,
+    },
+    key:{
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false
     },
 });
 
