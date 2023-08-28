@@ -1,0 +1,1026 @@
+{
+	"info": {
+		"_postman_id": "9c037e79-409c-4b2c-bc34-04cfbba91dcc",
+		"name": "LiteraMarketAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28170985"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "createUsers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "lucas",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "lucas@alskd.com",
+									"type": "text"
+								},
+								{
+									"key": "hash",
+									"value": "8cur23mc",
+									"type": "text"
+								},
+								{
+									"key": "salt",
+									"value": "cm93x39u239mw",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "showUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUsers",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "lucas@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/3",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUsers",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Avaliate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userAvalied",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "score",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/avaliate",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"avaliate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAvaliations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/3/avaliations",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"3",
+								"avaliations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changePass",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "hash",
+									"value": "hashalterado",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/changepass",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"changepass"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "createContact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "codArea",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "987654321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/contact/create",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"contact",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexContacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/contact",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateContact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "codArea",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/contact/update",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"contact",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteContact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/contact/delete",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"contact",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "createAddress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cep",
+									"value": "12345-678",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "rua jsnackjnas",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "234",
+									"type": "text"
+								},
+								{
+									"key": "complement",
+									"value": "asdcadcasdcasdcadscadcasdcasdc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/4/address/create",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"4",
+								"address",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexAddress",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/address/",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"address",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateAddress",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "street",
+									"value": "Av. Athos da Silveira Ramos",
+									"type": "text"
+								},
+								{
+									"key": "number",
+									"value": "274",
+									"type": "text"
+								},
+								{
+									"key": "cep",
+									"value": "21941-909",
+									"type": "text"
+								},
+								{
+									"key": "complement",
+									"value": "Cidade Universitária da Universidade Federal do Rio de Janeiro",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/2/address/update",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"2",
+								"address",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAddress",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/4/address/delete",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"4",
+								"address",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PaymentCard",
+			"item": [
+				{
+					"name": "createPaymentCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "accountNumber",
+									"value": "2720639391924099",
+									"type": "text"
+								},
+								{
+									"key": "valid",
+									"value": "08/28",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"value": "ajsndkcnkajsdakljs",
+									"type": "text"
+								},
+								{
+									"key": "securityCode",
+									"value": "645",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/addcard",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"paymentcards",
+								"addcard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexPaymentCard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"paymentcards",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePaymentCard",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "flag",
+									"value": "visa",
+									"type": "text"
+								},
+								{
+									"key": "valid",
+									"value": "08/31",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/update",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"paymentcards",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePaymentCard",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/delete",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"paymentcards",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PixKey",
+			"item": [
+				{
+					"name": "createPixKeyCpf",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "cpf",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "523.654.987-23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"pixkeys",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPixKeyCnpj",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "cnpj",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "12.123.123/0001-12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"pixkeys",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPixKeyEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "email",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "lucas@dcc.ufrj.br",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"pixkeys",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPixKeyFone",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "fone",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "987654321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"pixkeys",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPixKeyRandom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "random",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "qu@lqu3rc01s4a4a9651564",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"pixkeys",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexPixKey",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"pixkeys",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePixKey",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/delete",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"pixkeys",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.0.139:3333/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"139"
+					],
+					"port": "3333",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
