@@ -22,9 +22,10 @@ module.exports = sequelize;
 require('../models/Users');
 require('../models/Address');
 require('../models/Contact');
-require('../models/PaymentMethod');
+require('../models/PaymentCards');
 require('../models/Avaliation');
 require('../models/Auth');
+require('../models/PixKeys')
 
 for (mod in sequelize.models) {
   if (sequelize.models[mod].associate instanceof Function) {

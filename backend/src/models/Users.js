@@ -19,7 +19,7 @@ const Users = sequelize.define('Users', {
 Users.associate = (models) => {
     Users.hasMany(models.Address);
     Users.hasMany(models.Contact);
-    Users.hasMany(models.PaymentMethod);
+    Users.hasMany(models.PaymentCard);
     Users.hasOne(models.Auth);
     Users.belongsToMany(models.Users, {
         through: 'Avaliations',
@@ -31,6 +31,7 @@ Users.associate = (models) => {
         as: 'Avalied',
         foreignKey: 'availedId'
     })
+    Users.hasMany(models.PixKeys);
 }
 
 module.exports = Users;
