@@ -3,10 +3,10 @@ const contactModel = require('../models/Contact');
 const { Op } = require('sequelize');
 
 const create = async (req, res) => {
-    const { id } = req.params
+    const { userId } = req.params
     try {
         const contact = await contactModel.create(req.body);
-        const user = await userModel.findByPk(id);
+        const user = await userModel.findByPk(userId);
         await contact.setUser(user);
         return res.status(200).json({
             message: 'Contato criado com sucesso',
@@ -18,11 +18,11 @@ const create = async (req, res) => {
 }
 
 const index = async (req, res) => {
-    const { id } = req.params;
+    const { userId } = req.params;
     try {
         const contact = await contactModel.findAll({
             where: {
-                UserId: id
+                UserId: userId
             }
         })
         return res.status(200).json(contact);
@@ -32,9 +32,14 @@ const index = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    const { id } = req.params;
+    const { userId } = req.params;
     try {
-        const [updated] = await contactModel.update(req.body, { where: { UserId: id, id: req.body.id } })
+        const [updated] = await contactModel.update(req.body, { 
+            where: { 
+                UserId: userId, 
+                id: req.body.id 
+            } 
+        })
         if (updated) {
             const contact = await contactModel.findByPk(req.body.id)
             return res.status(200).json(contact);
@@ -46,12 +51,12 @@ const update = async (req, res) => {
 }
 
 const destroy = async (req, res) => {
-    const { UserId } = req.params;
+    const { userId } = req.params;
     try {
         const deleted = await contactModel.destroy({
             where: {
                 [Op.and]: {
-                    UserId: UserId,
+                    UserId: userId,
                     id: req.body.id
                 }
             }
