@@ -40,7 +40,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user",
+							"raw": "http://localhost:3333/user",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -62,7 +62,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user",
+							"raw": "http://localhost:3333/user",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -84,7 +84,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1",
+							"raw": "http://localhost:3333/user/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -117,7 +117,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/3",
+							"raw": "http://localhost:3333/user/3",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -140,7 +140,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1",
+							"raw": "http://localhost:3333/user/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -178,7 +178,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/avaliate",
+							"raw": "http://localhost:3333/user/2/avaliate",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -202,7 +202,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/3/avaliations",
+							"raw": "http://localhost:3333/user/3/avaliations",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -236,7 +236,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/changepass",
+							"raw": "http://localhost:3333/user/2/changepass",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -280,7 +280,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/contact/create",
+							"raw": "http://localhost:3333/user/2/contact/create",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -305,7 +305,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/contact",
+							"raw": "http://localhost:3333/user/2/contact",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -349,7 +349,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/contact/update",
+							"raw": "http://localhost:3333/user/2/contact/update",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -384,7 +384,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/contact/delete",
+							"raw": "http://localhost:3333/user/2/contact/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -439,7 +439,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/4/address/create",
+							"raw": "http://localhost:3333/user/4/address/create",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -464,7 +464,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/address/",
+							"raw": "http://localhost:3333/user/2/address/",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -519,7 +519,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/address/update",
+							"raw": "http://localhost:3333/user/2/address/update",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -554,7 +554,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/4/address/delete",
+							"raw": "http://localhost:3333/user/4/address/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -609,7 +609,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/paymentcards/addcard",
+							"raw": "http://localhost:3333/user/1/paymentcards/addcard",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -634,7 +634,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/paymentcards/",
+							"raw": "http://localhost:3333/user/1/paymentcards/",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -679,7 +679,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/paymentcards/update",
+							"raw": "http://localhost:3333/user/1/paymentcards/update",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -714,7 +714,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/paymentcards/delete",
+							"raw": "http://localhost:3333/user/1/paymentcards/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -759,7 +759,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"raw": "http://localhost:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -799,7 +799,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"raw": "http://localhost:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -839,7 +839,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"raw": "http://localhost:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -879,7 +879,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"raw": "http://localhost:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -919,7 +919,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
+							"raw": "http://localhost:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -944,7 +944,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/pixkeys/",
+							"raw": "http://localhost:3333/user/1/pixkeys/",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -979,7 +979,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/pixkeys/delete",
+							"raw": "http://localhost:3333/user/1/pixkeys/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1006,7 +1006,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://192.168.0.139:3333/",
+					"raw": "http://localhost:3333/",
 					"protocol": "http",
 					"host": [
 						"192",
