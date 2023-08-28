@@ -1,6 +1,5 @@
 const userModel = require('../models/Users');
 const contactModel = require('../models/Contact');
-const Contact = require('../models/Contact');
 const { Op } = require('sequelize');
 
 const create = async (req, res) => {
