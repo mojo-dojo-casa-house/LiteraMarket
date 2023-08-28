@@ -14,9 +14,16 @@ router.post('/user/:id/changepass', usersController.changePass);
 
 const contactController = require('../controllers/ContactController');
 
-router.post('/user/:id/contact/create', contactController.create);
-router.get('/user/:id/contact', contactController.index);
-router.put('/user/:id/contact/update', contactController.update);
-router.delete('/user/:UserId/contact/delete', contactController.destroy)
+router.post('/user/:userId/contact/create', contactController.create);
+router.get('/user/:userId/contact', contactController.index);
+router.put('/user/:userId/contact/update', contactController.update);
+router.delete('/user/:userId/contact/delete', contactController.destroy)
+
+const addressController = require('../controllers/AddressController');
+
+router.post('/user/:userId/Address/create', addressController.create);
+router.get('/user/:userId/Address', addressController.index);
+router.put('/user/:userId/Address/update', addressController.update);
+router.delete('/user/:userId/Address/delete', addressController.destroy);
 
 module.exports = router;
