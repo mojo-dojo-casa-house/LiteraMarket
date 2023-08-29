@@ -40,16 +40,18 @@ const styles = StyleSheet.create({
     MensagemTextoAviso: {
         color: global.colors.Branco,
         fontSize: 28,
-        
+        fontFamily: global.fonts.roboto,
         textAlign: 'center',
     },
     MensagemBotaoAzulTexto: {
         color: global.colors.Branco,
         fontSize: 20,
         marginHorizontal: 30,
+        fontFamily: global.fonts.roboto,
         textAlign: 'center',
     },
     MensagemConvidadoBotaoTexto: {
+        fontFamily: global.fonts.roboto,
         color: global.colors.Branco,
         fontSize: 15,
         marginHorizontal: 30,

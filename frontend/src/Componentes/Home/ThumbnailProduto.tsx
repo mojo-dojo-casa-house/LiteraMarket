@@ -47,7 +47,7 @@ const ProdutoMiniatura = () => {
   };
   
   return (
-    <View style={styles.Container}>
+    <View style={styles.Container}>     
       {ProdutosData.map(produto => (
         <Pressable key={produto.id} onPress={() => navigation.navigate('Produto')} style={styles.Produto}>
           <Image source={produto.image} style={styles.ImgProduto} />

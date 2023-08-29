@@ -21,12 +21,14 @@ const styles = StyleSheet.create({
     },
     tituloText: {
       fontSize: 24,
+      fontFamily: global.fonts.roboto,
       fontWeight: 'bold',
       color: global.colors.AzulEscuro,
       marginLeft: 30,
     },
     editarText: {
       fontSize: 20,
+      fontFamily: global.fonts.roboto,
       fontWeight: 'bold',
       color: global.colors.AzulEscuro,
       marginRight:16,
@@ -50,6 +52,7 @@ const styles = StyleSheet.create({
       height: 108,
     },
     nomeText: {
+      fontFamily: global.fonts.roboto,
       fontSize: 24,
       fontWeight: 'bold',
     },
@@ -61,6 +64,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     localizacaoText: {
+      fontFamily: global.fonts.roboto,
       fontSize: 16,
       color: global.colors.Roxo,
     },
@@ -82,6 +86,7 @@ const styles = StyleSheet.create({
       marginLeft: 25,
     },
     avaliacaoText: {
+      fontFamily: global.fonts.roboto,
       fontSize: 16,
       color: global.colors.AzulEscuro,
     },
@@ -90,6 +95,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     avaliacaoValor: {
+      fontFamily: global.fonts.roboto,
       fontSize: 16,
       color: global.colors.Preto,
       marginRight: 5,
@@ -108,10 +114,12 @@ const styles = StyleSheet.create({
       marginLeft: 12,
     },
     vendasText: {
+      fontFamily: global.fonts.roboto,
       fontSize: 16,
       color: global.colors.AzulEscuro,
     },
     numeroVendas: {
+      fontFamily: global.fonts.roboto,
       marginLeft: 50,
       fontSize: 24,
       color: global.colors.Preto,
@@ -125,6 +133,7 @@ const styles = StyleSheet.create({
       marginTop: 8,
     },
     textoBotao: {
+      fontFamily: global.fonts.roboto,
       marginLeft: 16,
       fontSize: 16,
       color: global.colors.AzulEscuro,
@@ -137,6 +146,7 @@ const styles = StyleSheet.create({
     },
     tituloVendas: {
       fontSize: 16,
+      fontFamily: global.fonts.roboto,
       color: global.colors.AzulEscuro,
       fontWeight: '700',
       marginHorizontal: 15,
