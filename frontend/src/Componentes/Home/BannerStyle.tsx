@@ -1,0 +1,75 @@
+import { StyleSheet } from 'react-native';
+;
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        marginTop: 12,
+    },
+    containerBanner: {
+        width: 386,
+        height: 199,
+    },
+    SetaIMG: {
+        width: 15,
+        height: 23,
+        opacity: 0.5,
+    },
+    BannerPrimario: {
+        width: 386,
+        height: 199,
+    },
+    BannerSecundario: {
+        width: 386,
+        height: 137,
+        marginTop: 5,
+    },
+    BotaoBarraEsquerda: {
+        position: 'absolute',
+        left: 0,
+        width: 31,
+        height: 199,
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8,
+        backgroundColor: 'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1,
+    },
+    BotaoBarraEsquerdaVisivel: {
+        position: 'absolute',
+        left: 0,
+        width: 31,
+        height: 199,
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8,
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1,
+    },
+    BotaoBarraDireita: {
+        position: 'absolute',
+        right: 0,
+        width: 31,
+        height: 199,
+        borderTopRightRadius: 8,
+        borderBottomRightRadius: 8,
+        backgroundColor: 'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1,
+    },
+    BotaoBarraDireitaVisivel: {
+        position: 'absolute',
+        right: 0,
+        width: 31,
+        height: 199,
+        borderTopRightRadius: 8,
+        borderBottomRightRadius: 8,
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1,
+    },
+});
+export default styles;
