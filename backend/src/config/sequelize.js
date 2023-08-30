@@ -25,7 +25,9 @@ require('../models/Contact');
 require('../models/PaymentCards');
 require('../models/Avaliation');
 require('../models/Auth');
-require('../models/PixKeys')
+require('../models/PixKeys');
+require('../models/Books');
+require('../models/Comments')
 
 for (mod in sequelize.models) {
   if (sequelize.models[mod].associate instanceof Function) {
