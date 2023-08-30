@@ -50,7 +50,7 @@ export default function Produto() {
                     <Text style={styles.preçoProduto}>R$ 25.98</Text>
                     <View style={styles.verticalConteiner}> 
                         <Text style={styles.avaliaçãoValor}>5.0</Text>
-                        <Image source={require('../../../assets/Estrelas/Estrelas5.png')} style={styles.estrelasIMG} />
+                        <Image source={require('../../../assets/Estrelas/Estrelas2.png')} style={styles.estrelasIMG} />
                     </View>
                 </View>
                 

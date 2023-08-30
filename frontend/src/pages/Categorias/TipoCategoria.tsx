@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
 import styles from './style';
-import { View,TouchableOpacity , Pressable, Image,Text  } from 'react-native';
+import { View, Pressable, Image,Text  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import RodapePagHome from '../../Componentes/Home/Rodape';
-import FiltroFavoritos from '../../Componentes/Favoritos/Filtro';
-export default function Favoritos() {
+import FiltroCategorias from '../../Componentes/Categorias/filtro';
+import { StyleSheet } from 'react-native';
+import global from '../../globalStyles';
+
+export default function Tipo() {
     const navigation = useNavigation();
-    const [Mensagem, setMensagem] = useState(false);
     const [BolsaAtiva, setBolsaAtiva] = useState(true);
 
-    const handleMensagem = (valor) => {
-        if (valor>0){
-        setMensagem(true);
-    }
-      };
-   
     return (
         <View style={styles.container}>
+
+
+
             <View style={styles.cabeçalhoContainer}>
                 <View style={styles.horizontalConteiner}>
-                    <Pressable onPress={() => navigation.navigate('Home')}>
+                    <Pressable onPress={() => navigation.navigate('Categorias')}>
                         <Image source={require('../../../assets/SetaVoltar.png')} style={styles.VoltarIMG} />
                     </Pressable>
                     <View style={styles.favoritosConteiner}>
-                        <Text style={styles.tituloText}>Favoritos</Text>
+                        <Text style={styles.tituloText}>Categoria</Text>
                     </View>
                     <View>
                         {BolsaAtiva&&<View style={styles.bolinha}></View>}
@@ -32,24 +31,18 @@ export default function Favoritos() {
                         </Pressable>
                     </View>
                 </View>
-                 <View style={styles.meioConteiner}>
-                            <Image source={require('../../../assets/Favoritos/favs.png')} style={styles.favsIMG} />
+                <View style={styles.meioConteiner}>
                             <Text style={styles.numItensText}>4 Itens</Text>
-                        </View>
+                        </View> 
                 
             </View>
-            <FiltroFavoritos/>
+            <FiltroCategorias/> 
+            
 
-            {Mensagem &&
-            <View style={styles.mensagemFavoritos}>
-            <Image source={require('../../../assets/Favoritos/caraTriste.png')} style={styles.rostoIMG} />
-                <Text style={styles.mensagemFavoritosTextG}>Você não tem Favoritos</Text>
-                <Text style={styles.mensagemFavoritosTextP}>Adicione um Item aos seus Favoritos</Text>
-            </View>}
-
+            
             <View style={styles.footer}>           
-                <RodapePagHome value={2}/>
-            </View>
+                <RodapePagHome value={3}/>
+            </View> 
         </View>
        
     );

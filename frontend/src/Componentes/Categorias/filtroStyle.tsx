@@ -19,9 +19,17 @@ const styles = StyleSheet.create({
     },
     opçoes: {
       flexDirection: 'row',
-      marginVertical: 9,
-      marginLeft:16,
+      width:'100%',
+      height: 38,
+      marginBottom:10,
+      alignContent:'center',      
+      backgroundColor: global.colors.Branco,
   
+    },
+    opçoesContainer:{
+      marginLeft:16,
+      marginTop:8,
+      flexDirection: 'row',
     },
     opção: {
       alignItems: 'center',
@@ -29,9 +37,11 @@ const styles = StyleSheet.create({
     },
     opçãoTexto: {
       fontSize: 16,
+
       color: global.colors.Roxo,
     },
     opçãoSelecionada: {
+      
       borderBottomWidth: 1,
       borderColor: global.colors.Azul,
     },
@@ -45,3 +55,4 @@ const styles = StyleSheet.create({
     },
   });
 export default styles;
+
