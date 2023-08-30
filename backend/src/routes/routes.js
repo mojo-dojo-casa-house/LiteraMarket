@@ -61,10 +61,10 @@ router.delete('/user/:userId/deletecart', CartController.destroy);
 
 const booksController = require("../controllers/BooksController");
 
-router.post("/book", booksController.create);
-router.get("/book/:id", booksController.show); 
-router.get("/book", booksController.index); 
-router.put("/book/:id", booksController.update);
-router.delete("/book/:id", booksController.destroy);
+router.post("/user/:userId/books/add", booksController.create);
+router.get("/books/:id", booksController.show); 
+router.get("/books", booksController.index); 
+router.put("/user/:userId/books/edit", booksController.update);
+router.delete("/user/:userId/books/delete", booksController.destroy);
 
 module.exports = router;
