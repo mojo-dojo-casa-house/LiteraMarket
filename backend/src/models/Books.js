@@ -3,14 +3,6 @@ const sequelize = require('../config/sequelize');
 
 const Books = sequelize.define("Books",
 {
-    id:
-    {
-        type : DataType.UUID,
-        primaryKey: true,
-        unique: true,
-        allowNull: false
-    },
-
     value:
     {
         type: DataType.INTEGER,
@@ -28,7 +20,8 @@ const Books = sequelize.define("Books",
 
     year:
     {
-        type: DataType.YEAR,
+        type: DataType.INTEGER,
+        //YEAR gerava uma mensagem de erro, pois não era um tipo reconhecido no sequelize
         allowNull: false
     },
 
@@ -54,17 +47,18 @@ const Books = sequelize.define("Books",
 Books.associate = function(models)
 {
     //Relação Vende
-    Books.belongsTo(models.Users, {as: "Sell", foreignKey: 'UserSellFK'})
+    Books.belongsTo(models.Users, {as: 'Seller'})
+
+    Books.hasOne(models.Users)
 
     //Relação Deseja
-    Books.belongsToMany(models.Users,{through: "UserWish", as: "Wish"})
+    Books.belongsToMany(models.Users,{through: "Wish", as: "ProductCart", foreignKey: 'ProductId'})
 
     //Relação Favorita
-    Books.belongsToMany(models.Users, {through: "UserWish", as: "Favorite"})
+    Books.belongsToMany(models.Users, {through: "Favorites", as: "ProductFavorited", foreignKey: 'ProductId'})
 
     //Relação Comenta
-    Books.belongsToMany(models.Users, {through: "UserComment", as: "Comment"})
-
-    //Relação Compra
-    Books.belongsTo(models.Users, {as: "Buy", foreignKey: 'UserBuyFK'})
+    Books.belongsToMany(models.Users, {through: "Comments", as: "Comented", foreignKey: 'ProductId'})
 }
+
+module.exports = Books;
