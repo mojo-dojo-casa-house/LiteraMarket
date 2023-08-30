@@ -5,7 +5,8 @@ const Books = sequelize.define("Books",
 {
     value:
     {
-        type: DataType.INTEGER,
+        type: DataType.FLOAT,
+        //Acho que, para o valor de um produto, faz mais sentido usar Float
         allowNull: false,
         validate: {
             is: /^(?=.*\d)\d*(?:\.\d{1,2})?$/
@@ -34,7 +35,8 @@ const Books = sequelize.define("Books",
     image:
     {
         type: DataType.BLOB,
-        allowNull: false
+        //allowNull: false
+        //comentei allowNull para facilitar os testes enquanto não integramos o multer
     },
 
     genre:
