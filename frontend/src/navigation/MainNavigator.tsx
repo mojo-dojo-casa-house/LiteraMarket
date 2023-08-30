@@ -16,7 +16,7 @@ const Navigation = () => {
   
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false,}}>
+      <Stack.Navigator initialRouteName='Categorias' screenOptions={{ headerShown: false,}}>
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Produto' component={Produto} />
         <Stack.Screen name='Favoritos' component={Favoritos} />
