@@ -15,9 +15,4 @@ const Comments = sequelize.define('Comments', {
     }
 });
 
-Comments.associate = (models)=>{
-    Comments.hasOne(models.Users);
-    Comments.hasOne(models.Books);
-}
-
 module.exports = Comments
