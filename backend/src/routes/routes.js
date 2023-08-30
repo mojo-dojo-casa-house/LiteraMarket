@@ -59,4 +59,12 @@ router.post('/user/:userId/addcart', CartController.create);
 router.get('/user/:userId/cart', CartController.index);
 router.delete('/user/:userId/deletecart', CartController.destroy);
 
+const booksController = require("../controllers/BooksController");
+
+router.post("/book", booksController.create);
+router.get("/book/:id", booksController.show); 
+router.get("/book", booksController.index); 
+router.put("/book/:id", booksController.update);
+router.delete("/book/:id", booksController.destroy);
+
 module.exports = router;
