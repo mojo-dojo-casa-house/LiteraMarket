@@ -9,6 +9,7 @@ import Favoritos from '../pages/Favoritos/favoritos';
 import Bolsa from '../pages/Bolsa/bolsa';
 import Perfil from '../pages/Perfil/perfil';
 import Categorias from '../pages/Categorias/categorias';
+import Tipo from '../pages/Categorias/TipoCategoria';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const Navigation = () => {
         <Stack.Screen name='Produto' component={Produto} />
         <Stack.Screen name='Favoritos' component={Favoritos} />
         <Stack.Screen name='Categorias' component={Categorias} />
+          <Stack.Screen name='Tipo' component={Tipo} />
         <Stack.Screen name='Bolsa' component={Bolsa} />
         <Stack.Screen name='Perfil' component={Perfil} />
       </Stack.Navigator>

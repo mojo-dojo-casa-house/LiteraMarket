@@ -111,24 +111,41 @@ const styles = StyleSheet.create({
         fontWeight:'200',
     },
     categoriaConteiner:{
-        alignContent:'center',
+        alignItems:'center',
+        justifyContent:'center',
+        marginTop:10,
+        marginLeft:10,
         width:177,
-        height: 146,
+        height: 110,
         borderRadius:16,
-        backgroundColor:'#253C8C'
+        backgroundColor:global.colors.Azul,
     },
     iconeIMG:{
-        height:63,
-        width:63,
+        height:'60%',
+        width:'60%',
+       
     },
     categoriaTexto:{
+        textAlign:'center',
         fontFamily:global.fonts.roboto,
         fontSize:24,
         color: global.colors.Branco,
+        fontWeight: 'bold',
+       marginHorizontal:10,
+        
 
-    }
+    },
+    conteinerGeneros:{
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+        marginBottom:90,
+        width:414,
+        paddingHorizontal:16,
+        
+      },
    
 });
-
   
 export default styles;
