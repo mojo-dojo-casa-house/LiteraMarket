@@ -1,12 +1,12 @@
 const DataTypes = require('sequelize');
 const sequelize = require('../config/sequelize');
 
-const Address = sequelize.define('Address', {
+const Addresses = sequelize.define('Addresses', {
     cep:{
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-            is: /\d{5}-\d{3}/
+            is: /\d{8}/
         }
     },
     street:{
@@ -24,8 +24,8 @@ const Address = sequelize.define('Address', {
     }
 })
 
-Address.associate = (models) => {
-    Address.belongsTo(models.Users);
+Addresses.associate = (models) => {
+    Addresses.belongsTo(models.Users);
 }
 
-module.exports = Address;
+module.exports = Addresses;

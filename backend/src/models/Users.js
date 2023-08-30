@@ -17,7 +17,7 @@ const Users = sequelize.define('Users', {
 })
 
 Users.associate = (models) => {
-    Users.hasMany(models.Address);
+    Users.hasMany(models.Addresses);
     Users.hasMany(models.Contact);
     Users.hasMany(models.PaymentCard);
     Users.hasOne(models.Auth);
@@ -32,27 +32,27 @@ Users.associate = (models) => {
         foreignKey: 'availedId'
     })
     Users.hasMany(models.PixKeys);
-    Users.hasMany(models.Books, {
-        foreignKey: 'SellerId'
-    });
-    Users.hasMany(models.Books, {
-        foreignKey: 'BuyerId'
-    });
-    Users.belongsToMany(models.Books, {
-        through: 'Wish',
-        as: 'UserCart',
-        foreignKey: 'UserId'
-    });
-    Users.belongsToMany(models.Books, {
-        through: 'Favorites',
-        as: 'UserFavorite',
-        foreignKey: 'UserId'
-    });
-    Users.belongsToMany(models.Books, {
-        through: 'Comments',
-        as: "Comment",
-        foreignKey: "UserId",
-    })
+    // Users.hasMany(models.Books, {
+    //     foreignKey: 'SellerId'
+    // });
+    // Users.hasMany(models.Books, {
+    //     foreignKey: 'BuyerId'
+    // });
+    // Users.belongsToMany(models.Books, {
+    //     through: 'Wish',
+    //     as: 'UserCart',
+    //     foreignKey: 'UserId'
+    // });
+    // Users.belongsToMany(models.Books, {
+    //     through: 'Favorites',
+    //     as: 'UserFavorite',
+    //     foreignKey: 'UserId'
+    // });
+    // Users.belongsToMany(models.Books, {
+    //     through: 'Comments',
+    //     as: "Comment",
+    //     foreignKey: "UserId",
+    // })
 }
 
 module.exports = Users;
