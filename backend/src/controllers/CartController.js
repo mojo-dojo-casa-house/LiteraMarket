@@ -19,7 +19,7 @@ const create = async (req, res) => {
 const index = async (req,res) => {
     const {userId} = req.params;
     try {
-        const user = userModel.findByPk(userId)
+        const user = await userModel.findByPk(userId)
         const carts = await user.getUserCart();
         return res.status(200).json(carts);
     } catch (err) {
@@ -30,9 +30,9 @@ const index = async (req,res) => {
 const destroy = async (req, res) => {
     const { userId } = req.params;
     try {
-        const user = userModel.findByPk(userId);
-        const book = booksModel.findByPk(req.body.bookId)
-        await user.removeUserCart(book)
+        const user = await userModel.findByPk(userId);
+        const book = await booksModel.findByPk(req.body.bookId)
+        const deleted = await user.removeUserCart(book)
         if (deleted) {
             return res.status(200).json({ message: 'Favorito deletado com sucesso' });
         }
