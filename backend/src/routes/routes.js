@@ -39,25 +39,11 @@ router.post('/user/:userId/pixkeys/add', pixKeysController.create);
 router.get('/user/:userId/pixkeys', pixKeysController.index);
 router.delete('/user/:userId/pixkeys/delete', pixKeysController.destroy);
 
-
-//Rotas ainda não testadas
-const commentController = require('../controllers/CommentsController');
-
-router.post('/user/:userId/books/addComment', commentController.create);
-router.put('/user/:userId/books/:bookId/editComment', commentController.update);
-router.delete('/user/:userId/books/:bookId/deleteComment', commentController.destroy);
-
 const favoriteController = require('../controllers/FavoritesController')
 
 router.post('/user/:userId/addfavorite', favoriteController.create);
 router.get('/user/:userId/favorites', favoriteController.index);
 router.delete('/user/:userId/deletefavorite', favoriteController.destroy);
-
-const CartController = require('../controllers/CartController')
-
-router.post('/user/:userId/addcart', CartController.create);
-router.get('/user/:userId/cart', CartController.index);
-router.delete('/user/:userId/deletecart', CartController.destroy);
 
 const booksController = require("../controllers/BooksController");
 
@@ -66,5 +52,19 @@ router.get("/books/:id", booksController.show);
 router.get("/books", booksController.index); 
 router.put("/user/:userId/books/edit", booksController.update);
 router.delete("/user/:userId/books/delete", booksController.destroy);
+
+const CartController = require('../controllers/CartController')
+
+router.post('/user/:userId/addcart', CartController.create);
+router.get('/user/:userId/cart', CartController.index);
+router.delete('/user/:userId/deletecart', CartController.destroy);
+
+
+//Rotas ainda não testadas
+const commentController = require('../controllers/CommentsController');
+
+router.post('/user/:book/books/:bookId/addComment', commentController.create);
+router.put('/user/:userId/books/:bookId/editComment', commentController.update);
+router.delete('/user/:userId/books/:bookId/deleteComment', commentController.destroy);
 
 module.exports = router;
