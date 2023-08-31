@@ -1,14 +1,14 @@
 import React from 'react';
 import {  View , Image, TouchableOpacity} from 'react-native';
-// import styles from './style';
+import styled from 'styled-components/native';
 
 export default function Splash() {
     
     return (
         <View style={styles.container}>
-            <Image source={require('../../../assets/Splash/splashAlto.png')} style={styles.backgroundCimaIMG} />
-            <Image source={require('../../../assets/Splash/LogoMaior.png')} style={styles.logoIMG} />
-            <Image source={require('../../../assets/Splash/splashBaixo.png')} style={styles.backgroundBaixoIMG} />
+            <BackgroundCimaIMG source={require('../../../assets/Splash/splashAlto.png')}/>
+            <LogoIMG source={require('../../../assets/Splash/LogoMaior.png')}/>
+            <BackgroundBaixoIMG source={require('../../../assets/Splash/splashBaixo.png')}/>
 
             
         </View>
@@ -16,6 +16,36 @@ export default function Splash() {
     );
 }
 
+
+export const Container = styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: ${global.colors.AzulEscuro};
+`;
+
+export const LogoIMG = styled.Image`
+    width: 309px;
+    height: 160px;
+`;
+
+export const BackgroundCimaIMG = styled.Image`
+    width: 414px;
+    height: 210px;
+    position: absolute;
+    margin-bottom: 195.5px;
+    top: 0;
+    z-index: -1;
+`;
+
+export const BackgroundBaixoIMG = styled.Image`
+    width: 414px;
+    height: 302px;
+    position: absolute;
+    margin-top: 195.5px;
+    bottom: 0;
+    z-index: -1;
+`;
 
 import { StyleSheet } from 'react-native';
 import global from '../../globalStyles';

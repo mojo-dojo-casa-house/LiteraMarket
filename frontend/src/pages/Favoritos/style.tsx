@@ -1,117 +1,125 @@
-import { StyleSheet } from 'react-native';
 import global from '../../globalStyles';
+import styled from 'styled-components/native';
 
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: global.colors.BrancoFundo,
-    },
-    VoltarIMG:{
-        width: 31,
-        height: 30,
-        marginLeft: 16,
-    },
-    tituloText:{
-        fontSize: 24,
-        fontFamily: global.fonts.roboto,
-        fontWeight: 'bold',
-        color: global.colors.AzulEscuro,
-        
-    },
-    bolinha:{
-        width:10,
-        height:10,
-        backgroundColor: global.colors.Azul,
-        borderRadius:100,
-        position:'absolute',
-        right:12,
-        top:3,
-        zIndex:1,
-    },
-    
-    footer: {
-        position: 'fixed',
-        bottom:0,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    cabeçalhoContainer:{
-        height:88,
-        width:'100%',
-        backgroundColor: global.colors.Branco,
-        borderBottomWidth: 1,
-        borderColor: global.colors.Cinza,
+export const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  background-color: ${global.colors.BrancoFundo};
+`;
 
-        
+export const VoltarIMG = styled.Image`
+  width: 31px;
+  height: 30px;
+  margin-left: 16px;
+`;
 
-    },
-    horizontalConteiner:{
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent: 'space-between',
-        marginTop:16,
-     
-    },
-    meioConteiner:{
-        marginTop:5,
-        flexDirection:'row',
-        alignContent:'center',
-        justifyContent:'center',
-       
-    },
-    favoritosConteiner:{
-        flexDirection:'column',
-        alignItems:'center',
-        
-    },
-    bolsaIMG:{
-        width:25,
-        height:28,
-        marginRight:16,
-    },
-    favsIMG:{
-        width:16,
-        height:14,
-        marginRight:5,
-    },
-    rostoIMG:{
-        width:43,
-        height:43,
+export const TituloText = styled.Text`
+  font-size: 24px;
+  font-family: ${global.fonts.roboto};
+  font-weight: bold;
+  color: ${global.colors.AzulEscuro};
+`;
 
-    },
-    numItensText:{
-        fontFamily: global.fonts.roboto,
-        fontSize: 16,
-        color: global.colors.Cinza
-    },
-    barraCabeçalho:{
-        height:1,
-        width:'100%',
-        backgroundColor: global.colors.Cinza,
-    },
-    mensagemFavoritos:{
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginTop:40,
-        position: 'absolute',
-        top: '15%',
-    },
-    mensagemFavoritosTextG:{
-        fontSize: 32,
-        color: global.colors.AzulEscuro,
-        fontFamily: global.fonts.roboto,
-        fontWeight:'200',
-    },
-     mensagemFavoritosTextP:{
-        fontSize: 16,
-        color: global.colors.Roxo,
-        fontFamily: global.fonts.roboto,
-        fontWeight:'200',
-    }
-   
-});
+export const Bolinha = styled.View`
+  width: 10px;
+  height: 10px;
+  background-color: ${global.colors.Azul};
+  border-radius: 100px;
+  position: absolute;
+  right: 12px;
+  top: 3px;
+  z-index: 1;
+`;
+
+export const Footer = styled.View`
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CabecalhoContainer = styled.View`
+  height: 88px;
+  width: 100%;
+  background-color: ${global.colors.Branco};
+  border-bottom-width: 1px;
+  border-color: ${global.colors.Cinza};
+`;
+
+export const HorizontalConteiner = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+`;
+
+export const MeioConteiner = styled.View`
+  margin-top: 5px;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+`;
+
+export const FavoritosConteiner = styled.View`
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const BolsaIMG = styled.Image`
+  width: 25px;
+  height: 28px;
+  margin-right: 16px;
+`;
+
+export const FavsIMG = styled.Image`
+  width: 16px;
+  height: 14px;
+  margin-right: 5px;
+`;
+
+export const RostoIMG = styled.Image`
+  width: 43px;
+  height: 43px;
+`;
+
+export const NumItensText = styled.Text`
+  font-family: ${global.fonts.roboto};
+  font-size: 16px;
+  color: ${global.colors.Cinza};
+`;
+
+export const BarraCabecalho = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: ${global.colors.Cinza};
+`;
+
+export const MensagemFavoritos = styled.View`
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  position: absolute;
+  top: 15%;
+`;
+
+export const MensagemFavoritosTextG = styled.Text`
+  font-size: 32px;
+  color: ${global.colors.AzulEscuro};
+  font-family: ${global.fonts.roboto};
+  font-weight: 200;
+`;
+
+export const MensagemFavoritosTextP = styled.Text`
+  font-size: 16px;
+  color: ${global.colors.Roxo};
+  font-family: ${global.fonts.roboto};
+  font-weight: 200;
+`;
+export const Clicavel = styled.Pressable`
+
+`;
+
+
 
   
-export default styles;

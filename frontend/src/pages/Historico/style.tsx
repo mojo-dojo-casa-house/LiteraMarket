@@ -14,10 +14,10 @@ export const VoltarIMG = styled.Image`
 `;
 
 export const TituloText = styled.Text`
-    font-size: 20px;
     font-family: ${global.fonts.roboto};
-    font-weight: bold;
-    color: ${global.colors.AzulEscuro};
+    font-size: 20px;
+    color: ${global.colors.Cinza};
+    
 `;
 
 export const ProdutoContainer = styled.View`
@@ -89,11 +89,12 @@ export const RostoIMG = styled.Image`
 `;
 
 export const HistoricoText = styled.Text`
-    font-family: ${global.fonts.roboto};
     font-size: 20px;
-    color: ${global.colors.Cinza};
+    font-family: ${global.fonts.roboto};
+    font-weight: bold;
+    color: ${global.colors.AzulEscuro};
     margin-left: 18px;
-`;
+  `;
 
 export const BarraCabecalho = styled.View`
     height: 1px;
@@ -231,4 +232,120 @@ export const IndicadorPonto = styled.View`
   right: 12px;
   top: 3px;
   z-index: 1;
+`;
+
+
+export const DivisorContainer = styled.View`
+  borderBottomWidth: 1;
+  borderBottomColor:  ${global.colors.Cinza};
+`;
+
+export const TopoPedido = styled.View`
+  marginVertical: 20;
+  marginHorizontal: 10;
+`;
+
+export const PedidoContainer = styled.View`
+  width: 382px;
+  background-color: white;
+  border-radius: 14px;
+  marginVertical: 90px;
+`;
+
+export const PedidoHorizontal = styled.View`
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+`;
+
+export const PedidoNumTexto = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 16px;
+  color: ${global.colors.Preto};
+  fontWeight: bold;
+`;
+
+export const PedidoDataTexto = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 14px;
+  color: ${global.colors.Cinza};
+`;
+
+export const PedidoSituaçãoTexto = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 14px;
+  color: ${global.colors.Preto};
+`;
+
+export const PedidoStatusTexto = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 14px;
+  color: ${global.colors.Preto};
+`;
+
+export const TituloLivro = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 18px;
+  color: ${global.colors.Preto};
+  fontWeight: 500;
+`;
+
+export const QuantidadeLivros = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 16px;
+  color: ${global.colors.Preto};
+  margin-right:8px;
+  
+`;
+
+export const PrecoLivro = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 16px;
+  color: ${global.colors.Preto};
+  fontWeight: 500;
+`;
+
+export const AutorLivro = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 14px;
+  color: ${global.colors.Cinza};
+`;
+export const LocalizacaoIMG  = styled.Image`
+  width: 10px;
+  height: 15px;
+  margin-right:6px;
+
+
+`;
+
+export const ConteudoPedido = styled.View`
+  marginVertical: 10px;
+  marginHorizontal: 10px;     
+  justifyContent: center;
+`;
+
+export const BaixoPedido = styled.View`
+  marginVertical: 30px;
+  marginHorizontal: 10px;
+`;
+
+export const Localizacao = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 14px;
+  color: ${global.colors.Preto};
+  fontWeight: bold;
+`;
+
+export const Total = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 14px;
+  color: ${global.colors.Preto};
+  margin-right:8px;
+`;
+
+export const PrecoTotal = styled.Text`
+  fontFamily: ${global.fonts.roboto};
+  fontSize: 16px;
+  color: ${global.colors.Preto};
+  fontWeight: 500;
 `;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
-import ProdutoMiniatura from '../Home/ThumbnailProduto';
-import styles from './FiltroStyle';
+import ProdutoMiniatura from '../Home/ThumbnailProduto/ThumbnailProduto';
+import {Container,ContainerProduto,ConteinerProdutos,Opçoes,OpçoesContainer,Opção,OpçãoSelecionadaG,OpçãoSelecionadaTexto,OpçãoTexto} from './FiltroStyle';
+
 
 const FiltroFavoritos = () => {
 // Seleciona a Opção
@@ -16,28 +17,34 @@ const FiltroFavoritos = () => {
 // Mais Vendidos
       case 1: 
         return (
-          <View style={styles.conteinerProdutos}>
+          <ConteinerProdutos>
             <ProdutoMiniatura/><ProdutoMiniatura/>
             <ProdutoMiniatura/><ProdutoMiniatura/>
-          </View>
+          </ConteinerProdutos>
           
         );
 // Lançamentos
       case 2:
         return (
-          <View style={styles.conteinerProdutos}>
+          <ConteinerProdutos>
             <ProdutoMiniatura/><ProdutoMiniatura/>
-            <ProdutoMiniatura/>
-          </View>
+            <ProdutoMiniatura/><ProdutoMiniatura/>
+          </ConteinerProdutos>
         );
 // Gratuitos
       case 3:
         return (
-          <View style={styles.conteinerProdutos}>
+          <ConteinerProdutos>
+            <ProdutoMiniatura/><ProdutoMiniatura/>
+            <ProdutoMiniatura/>
+          </ConteinerProdutos>
+        );
+      case 4:
+        return (
+          <ConteinerProdutos>
             <ProdutoMiniatura/><ProdutoMiniatura/>
             <ProdutoMiniatura/><ProdutoMiniatura/>
-           
-          </View>
+          </ConteinerProdutos>
         );
 
       default:
@@ -46,33 +53,55 @@ const FiltroFavoritos = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.opçoes}>
-        <View style={styles.opçoesContainer}>
-        <Pressable style={[styles.opção, OpçãoSelecionada === 1 && styles.opçãoSelecionada]} onPress={() => Selecionado(1)}>
-          <Text style={[styles.opçãoTexto, OpçãoSelecionada === 1 && styles.opçãoSelecionadaTexto]}>
-            Mais Vendidos
-          </Text>
-        </Pressable>
+    <Container>
+      <Opçoes>
+        <OpçoesContainer>
+          {OpçãoSelecionada === 1 ?  <OpçãoSelecionadaG>
+            <OpçãoSelecionadaTexto>
+              Relevância
+            </OpçãoSelecionadaTexto>
+          </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(1)}>
+            <OpçãoTexto>
+              Relevância
+            </OpçãoTexto>
+          </Opção> }
 
-        <Pressable style={[styles.opção, OpçãoSelecionada === 2 && styles.opçãoSelecionada]}onPress={() => Selecionado(2)}>
-          <Text style={[styles.opçãoTexto, OpçãoSelecionada === 2 && styles.opçãoSelecionadaTexto]}>
-            Lançamentos
-          </Text>
-        </Pressable>
+          {OpçãoSelecionada === 2 ?  <OpçãoSelecionadaG>
+            <OpçãoSelecionadaTexto>
+              Últimos
+            </OpçãoSelecionadaTexto>
+          </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(2)}>
+            <OpçãoTexto>
+              Últimos
+            </OpçãoTexto>
+          </Opção> }
 
-        <Pressable style={[styles.opção, OpçãoSelecionada === 3 && styles.opçãoSelecionada]} onPress={() => Selecionado(3)}>
-          <Text style={[styles.opçãoTexto, OpçãoSelecionada === 3 && styles.opçãoSelecionadaTexto]}>
-            Gratuitos
-          </Text>
-        </Pressable>
-      </View>
-      </View>
+          {OpçãoSelecionada === 3 ?  <OpçãoSelecionadaG>
+            <OpçãoSelecionadaTexto>
+              Mais Vendidos
+            </OpçãoSelecionadaTexto>
+          </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(3)}>
+            <OpçãoTexto>
+              Mais Vendidos
+            </OpçãoTexto>
+          </Opção> }
+
+          {OpçãoSelecionada === 4 ?  <OpçãoSelecionadaG>
+            <OpçãoSelecionadaTexto>
+              Usados
+            </OpçãoSelecionadaTexto>
+          </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(4)}>
+            <OpçãoTexto>
+             Usados
+            </OpçãoTexto>
+          </Opção> }
+        </OpçoesContainer>
+      </Opçoes>
       
       {/* onde os produtos estão sendo renderizados */}
-      <View style={styles.containerProduto}>{renderProduto()}</View> 
+      <ContainerProduto>{renderProduto()}</ContainerProduto> 
 
-    </View>
+    </Container>
   );
 };
 

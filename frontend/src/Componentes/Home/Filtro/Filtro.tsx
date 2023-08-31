@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import ProdutoMiniatura from '../Home/ThumbnailProduto/ThumbnailProduto';
+import ProdutoMiniatura from '../../Home/ThumbnailProduto/ThumbnailProduto';
 import {Container,ContainerProduto,ConteinerProdutos,Opçoes,OpçoesContainer,Opção,OpçãoSelecionadaG,OpçãoSelecionadaTexto,OpçãoTexto} from './FiltroStyle';
 
 
-const FiltroCategorias = () => {
+const Filtro = () => {
 // Seleciona a Opção
   const [OpçãoSelecionada, setOpçãoSelecionada] = useState(1);
   const Selecionado = (opção) => {
@@ -57,43 +57,35 @@ const FiltroCategorias = () => {
         <OpçoesContainer>
           {OpçãoSelecionada === 1 ?  <OpçãoSelecionadaG>
             <OpçãoSelecionadaTexto>
-              Relevância
+             Mais Vendidos
             </OpçãoSelecionadaTexto>
           </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(1)}>
             <OpçãoTexto>
-              Relevância
+            Mais Vendidos
             </OpçãoTexto>
           </Opção> }
 
           {OpçãoSelecionada === 2 ?  <OpçãoSelecionadaG>
             <OpçãoSelecionadaTexto>
-              Últimos
+              Lançamentos
             </OpçãoSelecionadaTexto>
           </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(2)}>
             <OpçãoTexto>
-              Últimos
+              Lançamentos
             </OpçãoTexto>
           </Opção> }
 
           {OpçãoSelecionada === 3 ?  <OpçãoSelecionadaG>
             <OpçãoSelecionadaTexto>
-              Mais Vendidos
+             Gratuitos
             </OpçãoSelecionadaTexto>
           </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(3)}>
             <OpçãoTexto>
-              Mais Vendidos
+             Gratuitos
             </OpçãoTexto>
           </Opção> }
 
-          {OpçãoSelecionada === 4 ?  <OpçãoSelecionadaG>
-            <OpçãoSelecionadaTexto>
-              Usados
-            </OpçãoSelecionadaTexto>
-          </OpçãoSelecionadaG>  : <Opção onPress={() => Selecionado(4)}>
-            <OpçãoTexto>
-             Usados
-            </OpçãoTexto>
-          </Opção> }
+      
         </OpçoesContainer>
       </Opçoes>
       
@@ -106,4 +98,4 @@ const FiltroCategorias = () => {
 
 
 
-export default FiltroCategorias;
+export default Filtro;

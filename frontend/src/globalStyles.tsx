@@ -11,6 +11,8 @@ const global = {
         Branco: '#FFFFFF',
         Cinza:'#A0A0A0',
         AzulClaro:'#7997B4',
+        AzulFraco: '#EAF3FF',
+        AzulForte: '#AED0FF',
         Azul: '#2F88FF',
         AzulEscuro: '#0A1744',
         Roxo:'#6E6C90',
