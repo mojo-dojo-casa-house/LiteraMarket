@@ -11,8 +11,12 @@ const Comments = sequelize.define('Comments', {
     },
     comment: {
         type: DataTypes.TEXT,
-        allowNull: false,
     }
 });
+
+Comments.associate = (models) => {
+    Comments.belongsTo(models.Users); 
+    Comments.belongsTo(models.Books);
+};
 
 module.exports = Comments

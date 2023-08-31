@@ -21,6 +21,8 @@ Users.associate = (models) => {
     Users.hasMany(models.Contact);
     Users.hasMany(models.PaymentCard);
     Users.hasOne(models.Auth);
+    Users.hasMany(models.PixKeys);
+
     Users.belongsToMany(models.Users, {
         through: 'Avaliations',
         as: 'Avaliator',
@@ -31,7 +33,7 @@ Users.associate = (models) => {
         as: 'Avalied',
         foreignKey: 'availedId'
     })
-    Users.hasMany(models.PixKeys);
+
     Users.hasMany(models.Books, {
         as: 'Seller',
         foreignKey: 'SellerId',
@@ -40,6 +42,7 @@ Users.associate = (models) => {
         as: 'Buy',
         foreignKey: 'BuyerId'
     });
+
     Users.belongsToMany(models.Books, {
         through: 'Wish',
         as: 'UserCart',
@@ -50,11 +53,7 @@ Users.associate = (models) => {
         as: 'UserFavorite',
         foreignKey: 'UserId'
     });
-    Users.belongsToMany(models.Books, {
-        through: 'Comments',
-        as: "Comment",
-        foreignKey: "UserId",
-    })
+    Users.hasMany(models.Comments);
 }
 
 module.exports = Users;

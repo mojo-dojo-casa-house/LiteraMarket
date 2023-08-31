@@ -5,8 +5,9 @@ const Books = sequelize.define("Books",
 {
     value:
     {
-        type: DataType.INTEGER,
-        allowNull: false,
+        type: DataType.FLOAT,
+        //Acho que, para o valor de um produto, faz mais sentido usar Float
+        //allowNull: false,
         validate: {
             is: /^(?=.*\d)\d*(?:\.\d{1,2})?$/
         }
@@ -15,50 +16,51 @@ const Books = sequelize.define("Books",
     name:
     {
         type: DataType.STRING,
-        allowNull: false
+        //allowNull: false
     },
 
     year:
     {
         type: DataType.INTEGER,
         //YEAR gerava uma mensagem de erro, pois não era um tipo reconhecido no sequelize
-        allowNull: false
+        //allowNull: false
     },
 
     author:
     {
         type: DataType.STRING,
-        allowNull: false
+        //allowNull: false
     },
 
     image:
     {
         type: DataType.BLOB,
-        allowNull: false
+        //allowNull: false
+        //comentei allowNull para facilitar os testes enquanto não integramos o multer
     },
 
     genre:
     {
         type: DataType.STRING,
-        allowNull: false
+        //allowNull: false
     }
 })
 
 Books.associate = function(models)
 {
-    //Relação Vende
-    Books.belongsTo(models.Users, {as: 'Seller'})
-
-    Books.hasOne(models.Users)
-
     //Relação Deseja
-    Books.belongsToMany(models.Users,{through: "Wish", as: "ProductCart", foreignKey: 'ProductId'})
+    Books.belongsToMany(models.Users,{
+        through: "Wish", 
+        as: "ProductCart", 
+        foreignKey: 'ProductId'})
 
     //Relação Favorita
-    Books.belongsToMany(models.Users, {through: "Favorites", as: "ProductFavorited", foreignKey: 'ProductId'})
+    Books.belongsToMany(models.Users, {
+        through: "Favorites", 
+        as: "ProductFavorited", 
+        foreignKey: 'ProductId'})
 
-    //Relação Comenta
-    Books.belongsToMany(models.Users, {through: "Comments", as: "Comented", foreignKey: 'ProductId'})
+        Books.hasMany(models.Comments);
 }
 
 module.exports = Books;

@@ -20,7 +20,7 @@ const sequelize = (process.env.DB_CONNECTION === 'sqlite') ?
 module.exports = sequelize;
 
 require('../models/Users');
-require('../models/Addresses');
+require('../models/Address');
 require('../models/Contact');
 require('../models/PaymentCards');
 require('../models/Avaliation');
