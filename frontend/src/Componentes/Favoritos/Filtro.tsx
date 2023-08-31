@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
 import ProdutoMiniatura from '../Home/ThumbnailProduto/ThumbnailProduto';
 import {Container,ContainerProduto,ConteinerProdutos,Opçoes,OpçoesContainer,Opção,OpçãoSelecionadaG,OpçãoSelecionadaTexto,OpçãoTexto} from './FiltroStyle';
 
