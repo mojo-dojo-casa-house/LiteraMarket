@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Text, View, Image,Pressable, Modal } from 'react-native';
-import styles from './style';
-import Cabecalho from '../../Componentes/Home/Cabeçalho';
-import RodapePagHome from '../../Componentes/Home/Rodape';
-import Banner from '../../Componentes/Home/Banner';
-import BarraPesquisa from '../../Componentes/Home/BarraPesquisa';
-import FiltroEscolhas from '../../Componentes/Home/Filtro';
+import {Container,OverlayContainer,Footer,Mensagem,MensagemBotaoAzul,MensagemTextoAviso,MensagemBotaoAzulTexto,MensagemConvidadoBotaoTexto,BotaoExclamacao, Overlay, Botao, Final} from './style';
+import Cabecalho from '../../Componentes/Home/Cabeçalho/Cabeçalho';
+import RodapePagHome from '../../Componentes/Home/Rodape/Rodape';
+import Banner from '../../Componentes/Home/Banner/Banner';
+import BarraPesquisa from '../../Componentes/Home/BarradePesquisa/BarraPesquisa';
+import FiltroEscolhas from '../../Componentes/Home/Filtro/Filtro';
 import { useNavigation } from '@react-navigation/native';
+import Filtro from '../../Componentes/Home/Filtro/Filtro';
 
 export default function Home() {
     const navigation = useNavigation();
@@ -20,34 +20,34 @@ export default function Home() {
     };
 
     return (
-        <View style={styles.container}>
+        <Container>
             <Cabecalho onPerfilClick={toggleOverlay} />
             <Banner/>
             <BarraPesquisa/>
-            <FiltroEscolhas/>
-
-            <View style={styles.footer}>           
+            <Final><Filtro/></Final>
+        
+            <Footer>           
                 <RodapePagHome value={1} />
-            </View>
-            
-            <Modal visible={OverlayVisivel} transparent animationType="fade">
-                <Pressable style={styles.overlayContainer} onPress={fecharOverlay}>
-                    <View style={styles.Mensagem}>
-                       <Image source={require('../../../assets/Alerta.png')} style={styles.BotaoExclamacao} />
-                        <Text style={styles.MensagemTextoAviso}>Você não Possui um Conta</Text>
-                        <Pressable onPress={() => {fecharOverlay(); navigation.navigate('Login');}}
-                         style={styles.MensagemBotaoAzul}><Text style={styles.MensagemBotaoAzulTexto}>Entrar com uma Conta</Text></Pressable>
-                         
-                        <Pressable onPress={() => {fecharOverlay(); navigation.navigate('Cadastro');}} 
-                         style={styles.MensagemBotaoAzul}><Text style={styles.MensagemBotaoAzulTexto}>Criar uma Conta</Text></Pressable>
-                        <Pressable onPress={fecharOverlay}><Text style={styles.MensagemConvidadoBotaoTexto}>Continuar Como Convidado</Text></Pressable>
-                        <Pressable onPress={() => {fecharOverlay(); navigation.navigate('Perfil');}} >
-                        <Text style={styles.MensagemConvidadoBotaoTexto} >IR PARA PERFIL (APAGAR ESSE BOTAO DEPOIS)</Text>
-                        </Pressable>
-                    </View>
-                </Pressable>
-            </Modal>
-        </View>
+            </Footer> 
+            <Overlay visible={OverlayVisivel} transparent animationType="fade">
+                <OverlayContainer onPress={fecharOverlay}>
+                    <Mensagem>
+                        <BotaoExclamacao source={require('../../../assets/Alerta.png')}/>
+                        <MensagemTextoAviso>Você não Possui um Conta</MensagemTextoAviso>
+                        <MensagemBotaoAzul onPress={() => {fecharOverlay(); navigation.navigate('Login' as never);}}>
+                            <MensagemBotaoAzulTexto>Entrar com uma Conta</MensagemBotaoAzulTexto>
+                        </MensagemBotaoAzul>
+                        <MensagemBotaoAzul onPress={() => {fecharOverlay(); navigation.navigate('Cadastro' as never);}}>
+                            <MensagemBotaoAzulTexto>Criar uma Conta</MensagemBotaoAzulTexto>
+                        </MensagemBotaoAzul>
+                        <Botao onPress={fecharOverlay}><MensagemConvidadoBotaoTexto>Continuar Como Convidado</MensagemConvidadoBotaoTexto></Botao>
+                        <Botao onPress={() => {fecharOverlay(); navigation.navigate('Perfil' as never);}} >
+                        <MensagemConvidadoBotaoTexto>IR PARA PERFIL (APAGAR ESSE BOTAO DEPOIS)</MensagemConvidadoBotaoTexto>
+                        </Botao>
+                    </Mensagem>
+                </OverlayContainer >
+            </Overlay>
+        </Container>
     );
 }
 

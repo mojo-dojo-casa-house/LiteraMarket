@@ -1,100 +1,58 @@
 import React, { useState } from 'react';
-import styles from './style';
-import { View, Pressable, Image,Text  } from 'react-native';
+import styled from 'styled-components/native';
+import { View, Pressable, Image, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import RodapePagHome from '../../Componentes/Home/Rodape';
+import RodapePagHome from '../../Componentes/Home/Rodape/Rodape';
 import FiltroCategorias from '../../Componentes/Categorias/filtro';
-import { StyleSheet } from 'react-native';
-import global from '../../globalStyles';
+import {Container,CabecalhoContainer,ContainerCategoria,ContainerHorizontal,ContainerGeneros,FavoritosContainer,TextoCategoria,TextoTitulo,ImagemBolsa,ImagemVoltar,IndicadorPonto,Rodape} from './style';
 
 export default function Categorias() {
-    const navigation = useNavigation();
-    const [BolsaAtiva, setBolsaAtiva] = useState(true);
+  const navigation = useNavigation();
+  const [BolsaAtiva, setBolsaAtiva] = useState(true);
 
-    return (
-        <View style={styles.container}>
-
-
-
-            <View style={styles.cabeçalhoContainer}>
-                <View style={styles.horizontalConteiner}>
-                    <Pressable onPress={() => navigation.navigate('Home')}>
-                        <Image source={require('../../../assets/SetaVoltar.png')} style={styles.VoltarIMG} />
-                    </Pressable>
-                    <View style={styles.favoritosConteiner}>
-                        <Text style={styles.tituloText}>Categorias</Text>
-                    </View>
-                    <View>
-                        {BolsaAtiva&&<View style={styles.bolinha}></View>}
-                        <Pressable onPress={() => navigation.navigate('Bolsa')}>
-                        <Image source={require('../../../assets/Bolsa.png')} style={styles.bolsaIMG} />
-                        </Pressable>
-                    </View>
-                </View>
-                 {/* <View style={styles.meioConteiner}>
-                            <Image source={require('../../../assets/Favoritos/favs.png')} style={styles.favsIMG} />
-                            <Text style={styles.numItensText}>4 Itens</Text>
-                        </View> */}
-                
-            </View>
-            {/* <FiltroCategorias/> */}
-            <View style={styles.conteinerGeneros}>
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>             
-                 <Text style={styles.categoriaTexto}>Ficção Científica</Text> 
-                </View>
+  return (
+    <Container>
+      <CabecalhoContainer>
+        <ContainerHorizontal>
+          <Pressable onPress={() => navigation.navigate('Home' as never)}>
+            <ImagemVoltar source={require('../../../assets/SetaVoltar.png')} />
+          </Pressable>
+          <FavoritosContainer>
+            <TextoTitulo>Categorias</TextoTitulo>
+          </FavoritosContainer>
+          <View>
+            {BolsaAtiva && <IndicadorPonto />}
+            <Pressable onPress={() => navigation.navigate('Bolsa' as never)}>
+              <ImagemBolsa source={require('../../../assets/Bolsa.png')} />
             </Pressable>
-            
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>              
-                <Text style={styles.categoriaTexto}>Ação e Aventura</Text> 
-                </View>
-            </Pressable>
+          </View>
+        </ContainerHorizontal>
+      </CabecalhoContainer>
+      <ContainerGeneros>
+        <ContainerCategoria onPress={() => navigation.navigate('Tipo' as never)}>
+            <TextoCategoria>Fantasia</TextoCategoria>
+        </ContainerCategoria>
 
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>          
-                <Text style={styles.categoriaTexto}>Romance</Text> 
-                </View>
-            </Pressable>
+        <ContainerCategoria onPress={() => navigation.navigate('Tipo' as never)}>
+        <TextoCategoria>Distopia</TextoCategoria>
+        </ContainerCategoria>
 
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>
-                <Text style={styles.categoriaTexto}>Religiosos</Text> 
-                </View>
-            </Pressable>
+        <ContainerCategoria onPress={() => navigation.navigate('Tipo' as never)}>
+            <TextoCategoria>Ação e Aventura</TextoCategoria>
+        </ContainerCategoria>
 
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>             
-                    <Text style={styles.categoriaTexto}>Ficção Policial</Text> 
-                </View>
-            </Pressable>
+        <ContainerCategoria onPress={() => navigation.navigate('Tipo' as never)}>
+            <TextoCategoria>Ficção Policial</TextoCategoria>
+        </ContainerCategoria>
 
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>             
-                    <Text style={styles.categoriaTexto}>Horror</Text> 
-                </View>
-            </Pressable>
+        <ContainerCategoria onPress={() => navigation.navigate('Tipo' as never)}>
+            <TextoCategoria>Horror</TextoCategoria>
+        </ContainerCategoria>
 
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>             
-                    <Text style={styles.categoriaTexto}>Thriller e Suspense</Text> 
-                </View>
-            </Pressable>
-
-            <Pressable onPress={() => navigation.navigate('Tipo')}>
-                <View style={styles.categoriaConteiner}>             
-                    <Text style={styles.categoriaTexto}>Ficção histórica</Text> 
-                </View>
-            </Pressable>
-               
-            </View>
-
-            
-            <View style={styles.footer}>           
-                <RodapePagHome value={3}/>
-            </View> 
-        </View>
-       
-    );
+      </ContainerGeneros>
+      <Rodape>
+        <RodapePagHome value={3} />
+      </Rodape>
+    </Container>
+  );
 }
-

@@ -1,8 +1,8 @@
 import styled from 'styled-components/native';
-import global from '../../globalStyles';
+import global from '../../../globalStyles';
 
 export const Container = styled.View`
-  flex: 1;
+
 `;
 
 export const ConteinerProdutos = styled.View`
@@ -10,9 +10,11 @@ export const ConteinerProdutos = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: 90px;
+  margin-bottom: 100px;
   width: 414px;
   padding-horizontal: 16px;
+  background-color: ${global.colors.BrancoFundo};
+
 `;
 
 export const Opçoes = styled.View`
@@ -20,7 +22,7 @@ export const Opçoes = styled.View`
   height:38px;
   margin-bottom:10px;
   align-content:center;      
-  background-color:${global.colors.Branco};
+
 `;
 
 export const OpçoesContainer = styled.View`

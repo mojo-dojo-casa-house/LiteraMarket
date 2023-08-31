@@ -1,49 +1,46 @@
 import React, { useState } from 'react';
-import styles from './style';
+import {Container,CabeçalhoContainer,ContainerHorizontal,Clicavel,ImagemVoltar,FavoritosContainer,TextoTitulo,ImagemBolsa, MeioConteiner,NumItensText,Rodape,IndicadorPonto} from './TipoStyle';
 import { View, Pressable, Image,Text  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import RodapePagHome from '../../Componentes/Home/Rodape';
+import RodapePagHome from '../../Componentes/Home/Rodape/Rodape';
 import FiltroCategorias from '../../Componentes/Categorias/filtro';
 import { StyleSheet } from 'react-native';
-import global from '../../globalStyles';
+
 
 export default function Tipo() {
     const navigation = useNavigation();
     const [BolsaAtiva, setBolsaAtiva] = useState(true);
 
     return (
-        <View style={styles.container}>
+        <Container>
 
-
-
-            <View style={styles.cabeçalhoContainer}>
-                <View style={styles.horizontalConteiner}>
-                    <Pressable onPress={() => navigation.navigate('Categorias')}>
-                        <Image source={require('../../../assets/SetaVoltar.png')} style={styles.VoltarIMG} />
-                    </Pressable>
-                    <View style={styles.favoritosConteiner}>
-                        <Text style={styles.tituloText}>Categoria</Text>
-                    </View>
-                    <View>
-                        {BolsaAtiva&&<View style={styles.bolinha}></View>}
-                        <Pressable onPress={() => navigation.navigate('Bolsa')}>
-                        <Image source={require('../../../assets/Bolsa.png')} style={styles.bolsaIMG} />
-                        </Pressable>
-                    </View>
-                </View>
-                <View style={styles.meioConteiner}>
-                            <Text style={styles.numItensText}>4 Itens</Text>
-                        </View> 
-                
-            </View>
+            <CabeçalhoContainer>
+                <ContainerHorizontal>
+                <Clicavel onPress={() => navigation.navigate('Categorias' as never)}>
+                 <ImagemVoltar source={require('../../../assets/SetaVoltar.png')} />
+                </Clicavel>
+                    <FavoritosContainer>
+                        <TextoTitulo>Categoria</TextoTitulo>
+                    </FavoritosContainer>
+                    
+                        {BolsaAtiva&&<IndicadorPonto></IndicadorPonto >}
+                        <Clicavel onPress={() => navigation.navigate('Bolsa' as never)}>
+                        <ImagemBolsa source={require('../../../assets/Bolsa.png')} />
+                        </Clicavel>
+                    
+                </ContainerHorizontal>
+                <MeioConteiner>
+                         <NumItensText>4 Itens</NumItensText>
+                </MeioConteiner>
+            </CabeçalhoContainer>
             <FiltroCategorias/> 
             
 
             
-            <View style={styles.footer}>           
+            <Rodape>           
                 <RodapePagHome value={3}/>
-            </View> 
-        </View>
+            </ Rodape> 
+        </Container>
        
     );
 }

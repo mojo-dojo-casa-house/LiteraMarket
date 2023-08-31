@@ -1,5 +1,5 @@
-import styled from 'styled-components/native';
 import global from '../../globalStyles';
+import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
@@ -38,7 +38,7 @@ export const Rodape = styled.View`
   align-items: center;
 `;
 
-export const CabecalhoContainer = styled.View`
+export const CabeçalhoContainer = styled.View`
   height: 88px;
   width: 100%;
   background-color: ${global.colors.Branco};
@@ -64,32 +64,24 @@ export const ImagemBolsa = styled.Image`
   margin-right: 16px;
 `;
 
-export const ContainerCategoria = styled.Pressable`
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 177px;
-  height: 110px;
-  border-radius: 16px;
-  background-color: ${global.colors.Azul};
-`;
 
-export const TextoCategoria = styled.Text`
-  text-align: center;
-  font-family: ${global.fonts.roboto};
-  font-size: 24px;
-  color: ${global.colors.Branco};
-  font-weight: bold;
-  margin-horizontal: 10px;
-`;
-
-export const ContainerGeneros = styled.View`
-  display: flex;
+export const MeioConteiner = styled.View`
+  margin-top: 5px;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 90px;
-  width: 414px;
-  padding-horizontal: 16px;
+  align-content: center;
+  justify-content: center;
 `;
+
+
+export const NumItensText = styled.Text`
+  font-family: ${global.fonts.roboto};
+  font-size: 16px;
+  color: ${global.colors.Cinza};
+`;
+
+
+export const Clicavel = styled.Pressable`
+
+
+`;
+
