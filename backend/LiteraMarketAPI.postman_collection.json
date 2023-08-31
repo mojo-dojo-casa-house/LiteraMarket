@@ -24,7 +24,7 @@
 								},
 								{
 									"key": "email",
-									"value": "lucas@alskd.com",
+									"value": "lucas@gmail.com",
 									"type": "text"
 								},
 								{
@@ -40,7 +40,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user",
+							"raw": "http://192.168.0.139:3333/user",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -62,7 +62,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user",
+							"raw": "http://192.168.0.139:3333/user",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -84,7 +84,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user/1",
+							"raw": "http://192.168.0.139:3333/user/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -111,13 +111,13 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "lucas@gmail.com",
+									"value": "lucas@açac.com",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/3",
+							"raw": "http://192.168.0.139:3333/user/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -128,7 +128,7 @@
 							"port": "3333",
 							"path": [
 								"user",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -140,7 +140,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user/1",
+							"raw": "http://192.168.0.139:3333/user/1",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -178,7 +178,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/2/avaliate",
+							"raw": "http://192.168.0.139:3333/user/2/avaliate",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -202,7 +202,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user/3/avaliations",
+							"raw": "http://192.168.0.139:3333/user/3/avaliations",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -236,7 +236,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/2/changepass",
+							"raw": "http://192.168.0.139:3333/user/2/changepass",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -280,7 +280,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/2/contact/create",
+							"raw": "http://192.168.0.139:3333/user/2/contact/create",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -305,7 +305,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user/2/contact",
+							"raw": "http://192.168.0.139:3333/user/2/contact",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -349,7 +349,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/2/contact/update",
+							"raw": "http://192.168.0.139:3333/user/2/contact/update",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -384,7 +384,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/2/contact/delete",
+							"raw": "http://192.168.0.139:3333/user/2/contact/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -439,7 +439,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/4/address/create",
+							"raw": "http://192.168.0.139:3333/user/4/address/create",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -464,7 +464,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user/2/address/",
+							"raw": "http://192.168.0.139:3333/user/2/address/",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -519,7 +519,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/2/address/update",
+							"raw": "http://192.168.0.139:3333/user/2/address/update",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -554,7 +554,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/4/address/delete",
+							"raw": "http://192.168.0.139:3333/user/4/address/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -609,7 +609,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/paymentcards/addcard",
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/addcard",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -634,7 +634,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user/1/paymentcards/",
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -679,7 +679,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/paymentcards/update",
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/update",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -714,7 +714,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/paymentcards/delete",
+							"raw": "http://192.168.0.139:3333/user/1/paymentcards/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -759,7 +759,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/pixkeys/add",
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -799,7 +799,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/pixkeys/add",
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -839,7 +839,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/pixkeys/add",
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -879,7 +879,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/pixkeys/add",
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -919,7 +919,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/pixkeys/add",
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/add",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -944,7 +944,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/user/1/pixkeys/",
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -979,7 +979,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3333/user/1/pixkeys/delete",
+							"raw": "http://192.168.0.139:3333/user/1/pixkeys/delete",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1001,12 +1001,471 @@
 			]
 		},
 		{
+			"name": "Comments",
+			"item": []
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "createBooks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Led Zeppelin: Quando os gigantes caminhavam sobre a terra",
+									"type": "text"
+								},
+								{
+									"key": "genre",
+									"value": "Biografia",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2017",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "Mick Wall",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "23.56",
+									"type": "text"
+								},
+								{
+									"key": "SeelerId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/books/add",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"books",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBook",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/books/delete",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"books",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "showBooks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/books/5",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"books",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexBooks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "value",
+									"value": "23.56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/books",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBook",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/books/edit",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"books",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "createComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "avaliation",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Perfeito!",
+									"type": "text"
+								},
+								{
+									"key": "BookId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "UserId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/books/1/addcomment",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"books",
+								"1",
+								"addcomment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "createFvorite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bookId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/addfavorite",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"addfavorite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexFavorites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/favorites",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFavorite",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bookId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/deletefavorite",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"deletefavorite"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "CreateCart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bookId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/addcart",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"addcart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexCart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/cart",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bookId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/deletecart",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"deletecart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Hello",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3333/",
+					"raw": "http://192.168.0.139:3333/",
 					"protocol": "http",
 					"host": [
 						"192",
