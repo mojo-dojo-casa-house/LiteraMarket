@@ -8,6 +8,8 @@ import Produto from '../pages/Produto/produto';
 import Favoritos from '../pages/Favoritos/favoritos';
 import Bolsa from '../pages/Bolsa/bolsa';
 import Perfil from '../pages/Perfil/perfil';
+import Login from '../pages/Login';
+import Cadastro from '../pages/Cadastro';
 import Categorias from '../pages/Categorias/categorias';
 import Tipo from '../pages/Categorias/TipoCategoria';
 import Splash from '../pages/Splash';
@@ -20,6 +22,8 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false,}}>
         <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Cadastro' component={Cadastro} />
         <Stack.Screen name='Produto' component={Produto} />
         <Stack.Screen name='Favoritos' component={Favoritos} />
         <Stack.Screen name='Categorias' component={Categorias} />
