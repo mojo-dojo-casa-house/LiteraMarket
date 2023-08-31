@@ -11,7 +11,6 @@ const Comments = sequelize.define('Comments', {
     },
     comment: {
         type: DataTypes.TEXT,
-        allowNull: false,
     }
 });
 

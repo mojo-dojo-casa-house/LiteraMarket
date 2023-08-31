@@ -43,9 +43,9 @@ router.delete('/user/:userId/pixkeys/delete', pixKeysController.destroy);
 //Rotas ainda não testadas
 const commentController = require('../controllers/CommentsController');
 
-router.post('/user/:userId/books/bookId/addComment', commentController.create);
-router.put('/user/:userId/books/bookId/editComment', commentController.update);
-router.delete('/user/:userId/books/bookId/deleteComment', commentController.destroy);
+router.post('/user/:userId/books/addComment', commentController.create);
+router.put('/user/:userId/books/:bookId/editComment', commentController.update);
+router.delete('/user/:userId/books/:bookId/deleteComment', commentController.destroy);
 
 const favoriteController = require('../controllers/FavoritesController')
 
