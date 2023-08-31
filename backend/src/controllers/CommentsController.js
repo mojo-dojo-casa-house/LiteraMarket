@@ -3,17 +3,12 @@ const commentModel = require('../models/Books');
 const userModel = require('../models/Users');
 
 const create = async (req, res) => {
-    const { userId } = req.params;
+    const { userId, bookId } = req.params;
     try {
-        // const user = await userModel.findByPk(userId);
-        // const book = await bookModel.findByPk(req.body.bookId);
-        // const comment = await user.setComment(book);
-        const comment = commentModel.create({
-            UserId: userId,
-            ProductId: req.body.bookId,
-            avaliation: req.body.avaliation,
-            comment: req.body.comment,
-        })
+        const user = await userModel.findByPk(userId);
+        const book = await bookModel.findByPk(bookId);
+        const comment = commentModel.create(
+            req.body)
         if (comment)
             return res.status(200).json({
                 message: 'Avaliação adicionado com sucesso',

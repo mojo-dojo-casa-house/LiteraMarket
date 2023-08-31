@@ -7,7 +7,7 @@ const Books = sequelize.define("Books",
     {
         type: DataType.FLOAT,
         //Acho que, para o valor de um produto, faz mais sentido usar Float
-        allowNull: false,
+        //allowNull: false,
         validate: {
             is: /^(?=.*\d)\d*(?:\.\d{1,2})?$/
         }
@@ -16,20 +16,20 @@ const Books = sequelize.define("Books",
     name:
     {
         type: DataType.STRING,
-        allowNull: false
+        //allowNull: false
     },
 
     year:
     {
         type: DataType.INTEGER,
         //YEAR gerava uma mensagem de erro, pois não era um tipo reconhecido no sequelize
-        allowNull: false
+        //allowNull: false
     },
 
     author:
     {
         type: DataType.STRING,
-        allowNull: false
+        //allowNull: false
     },
 
     image:
@@ -42,7 +42,7 @@ const Books = sequelize.define("Books",
     genre:
     {
         type: DataType.STRING,
-        allowNull: false
+        //allowNull: false
     }
 })
 
@@ -60,11 +60,7 @@ Books.associate = function(models)
         as: "ProductFavorited", 
         foreignKey: 'ProductId'})
 
-    //Relação Comenta
-    Books.belongsToMany(models.Users, {
-        through: models.Comments, 
-        as: "Comented", 
-        foreignKey: 'ProductId'})
+        Books.hasMany(models.Comments);
 }
 
 module.exports = Books;
