@@ -48,7 +48,7 @@ export default function Categorias() {
         </ContainerCategoria>
 
         <ContainerCategoria onPress={() => navigation.navigate('Tipo' as never,{nome:'Classicos'})}>
-            <TextoCategoria>Classicos</TextoCategoria>
+            <TextoCategoria>Clássicos</TextoCategoria>
         </ContainerCategoria>
       </ContainerGeneros>
       <Rodape>

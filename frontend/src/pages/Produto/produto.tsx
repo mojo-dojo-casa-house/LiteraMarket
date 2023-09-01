@@ -131,8 +131,6 @@ const getEstrelasIMG = (avaliação) => {
 
             <ComentarioCampoContainer>
                 <Comentario/>
-                <Comentario/>
-                <Comentario/>
             </ComentarioCampoContainer>
 
             <FazerComentario/>

@@ -14,7 +14,7 @@ const ProdutoMiniatura = () => {
       titulo: 'A Revolução dos Bichos',
       autor: 'George Orwell',
       preco: 'R$ 25.98',
-      avaliação: 3,
+      avaliação: 5,
       image: require('../../../../assets/LivroIMG.png'),
       favorito: false,
     },

@@ -11,9 +11,9 @@ export default function Compra() {
            <Circulo>
             <Selo source={require('../../../assets/Selo.png')} />
            </Circulo>
-           <Mensagem>Parábens! sua compra foi realizada</Mensagem>
+           <Mensagem>Parabéns! sua compra foi realizada</Mensagem>
            <Botaoazul>
-            <TextoBotao onPress={() => navigation.navigate('Bolsa' as never, {comprar:true, CompraRealizada:true})}>Voltar ao Carrinho</TextoBotao>
+            <TextoBotao onPress={() => navigation.navigate('Bolsa' as never, {comprar:true, aCompraRealizada:true})}>Voltar ao Carrinho</TextoBotao>
 
             </Botaoazul>
 

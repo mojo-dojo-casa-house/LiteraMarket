@@ -10,7 +10,7 @@ export const Conteiner = styled.View`
   background-color:${global.colors.AzulEscuro};  
 `;
 
-export const Menu = styled.View`
+export const Menu = styled.Pressable`
   flex-direction:row; 
   align-items:center; 
   justify-content:center; 

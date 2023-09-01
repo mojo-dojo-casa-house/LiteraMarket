@@ -83,3 +83,68 @@ export const Botao = styled.Pressable`
 export const Overlay = styled.Modal`
  
 `;
+
+export const MenuOver = styled.Modal`
+
+`;
+
+export const MenuContainer = styled.View`
+width: 320px;
+height: 889px;
+background-color: ${global.colors.AzulEscuro};
+position: absolute;
+left:0;
+`;
+
+export const MenuHorizontal = styled.View`
+align-items: center;
+flex-direction: row;
+ margin-left:16px;
+ margin-top:40px;
+`;
+
+export const MenuVertical = styled.View`
+
+flex-direction: column;
+
+`;
+export const MenuText = styled.Text`
+font-size:24px,
+font-family:${global.fonts.roboto};
+color:${global.colors.Branco};
+margin-left:10px;
+`;
+export const OverlayMenu= styled.Pressable`
+flex: 1;
+justify-content: center;
+align-items: center;
+background-color: ${global.colors.PretoTransparente};
+`;
+
+export const MenuImg = styled.View`
+width: 87px;
+height:87px;
+background-color: ${global.colors.Azul};
+border-radius:100px;
+justify-content: center;
+align-items: center;
+`;
+
+export const MenuIcon = styled.Image`
+width: 28px;
+height: 26px;
+
+ 
+`;
+
+export const MenuPerfil = styled.Image`
+width: 48px;
+height: 46px;
+
+ 
+`;
+export const Clicavel = styled.Pressable`
+
+
+ 
+`;
