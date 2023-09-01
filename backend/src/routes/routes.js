@@ -67,4 +67,13 @@ router.post('/user/:book/books/:bookId/addComment', commentController.create);
 router.put('/user/:userId/books/:bookId/editComment', commentController.update);
 router.delete('/user/:userId/books/:bookId/deleteComment', commentController.destroy);
 
+//Rotas para upload de arquivos
+const imageUpload = require("../config/files");
+
+router.post("/private/user/addImage/:id", imageUpload.single("image"), usersController.addUserImage);
+router.delete("/private/user/removeImage/:id", usersController.removeUserImage);
+
+// router.post("/private/book/addPhoto", imageUpload.single("photo"), UserController.addUserPhoto);
+// router.delete("/private/book/removePhoto", UserController.removeUserPhoto);
+
 module.exports = router;

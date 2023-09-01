@@ -3,7 +3,8 @@ const Auth = require('../config/auth');
 const authModel = require('../models/Auth');
 const avaliationModel = require('../models/Avaliation');
 const usersModel = require('../models/Users');
-const Books = require('../models/Books');
+const fsPromise = require('fs').promises;
+
 
 const create = async (req, res) => {
     try {
@@ -116,45 +117,73 @@ const changePass = async (req, res) => {
     }
 }
 
-const login = async (req, res) => {
+async function addUserImage(request, response) 
+{
     try {
-        const user = usersModel.findOne({
-            where: {
+        
+        // const token = Auth.getToken(req);
+        // const payload = Auth.decodeJwt(token);
+        const { id } = request.params;
 
-                [Op.or]: {
-                    user: req.body.user,
-                    email: req.body.email,
-                }
-            }
-        })
-        if (!user)
-            return res.status(404).json({ message: 'Usuário não encontrado' });
-        const auth = authModel.findOne({ 
-            where: {
-                UserId: user.id
-            }
-        })
-        if(Auth.checkPassword(req.body.password, auth.hash, auth.salt)){
-            //const token = await Auth.
+        const user = await usersModel.findByPk(id);
+
+        if(!user) {
+            return response.status(500).json({message: "Usuário não encontrado"});
         }
-    } catch (error) {
 
+        if(!request.file) {
+            return res.status(500).json({message: "Não foi feito o upload de nenhuma imagem"});
+        }
+
+        const path = process.env.APP_URL + "/uploads/image/" + request.file.filename;
+
+        await user.update({
+            image: path,
+        });
+
+        return response.status(200).json({message: "Foto adicionada com sucesso"});
+
+    } catch (err) {
+        return response.status(500).json(err);
     }
-}
+};
 
-const buy = async (req, res) => {
-    const {userId} = req.params;
+async function removeUserImage(request, response)
+{
     try {
-        const book = await Books.findByPk(req.body.bookId);
-        const user = await usersModel.findByPk(userId);
-        const buyed = await user.setBuy(book)
-        if (buyed) {
-            return res.status(200).json({ message: 'Produto comprado' });
+
+        // const token = Auth.getToken(req);
+        // const payload = Auth.decodeJwt(token);
+        const { id } = request.params;
+
+        const user = await User.findByPk(id);
+
+        if(!user) {
+            return res.status(500).json({message: "Usuário não encontrado"});
         }
-    } catch (error) {
-        return res.status(500).json(error);
+
+        if(!user.image) {
+            return res.status(500).json({message: "Nenhuma imagem foi encontrada"});
+        }
+
+        const pathDb = user.image.split("/").slice(-1)[0]
+        const photoImage = path.join(__dirname, '..', '..', 'uploads/images', pathDb);
+
+        await fsPromise.unlink(photoImage);
+
+        await user.update({
+            image: null
+        });
+
+        return response.status(200).json({message: "Foto removida com sucesso"});
+
+    } catch(err) {
+        return response.status(500).json({message: "Erro ao remover a foto"});
     }
-}
+
+};
+
+
 module.exports = {
     create,
     index,
@@ -164,5 +193,7 @@ module.exports = {
     avaliate,
     avaliations,
     changePass,
-    buy
+    addUserImage,
+    removeUserImage
+
 }
