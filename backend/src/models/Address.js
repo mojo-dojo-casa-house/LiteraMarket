@@ -21,6 +21,12 @@ const Addresses = sequelize.define('Addresses', {
     },
     complement: {
         type: DataTypes.STRING,
+    },
+    city: {
+        type: DataTypes.STRING
+    },
+    state: {
+        type: DataTypes.STRING
     }
 })
 
