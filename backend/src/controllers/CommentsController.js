@@ -1,14 +1,16 @@
-const bookModel = require('../models/Books');
-const commentModel = require('../models/Books');
-const userModel = require('../models/Users');
+const { Op } = require('sequelize');
+const commentModel = require('../models/Comments');
 
 const create = async (req, res) => {
-    const { userId, bookId } = req.params;
+    const { userId } = req.params;
     try {
-        const user = await userModel.findByPk(userId);
-        const book = await bookModel.findByPk(bookId);
-        const comment = commentModel.create(
-            req.body)
+        const comment = await commentModel.create(
+            {
+                avaliation: req.body.avaliation,
+                comment: req.body.comment,
+                BookId: req.body.bookId,
+                UserId: userId
+            });
         if (comment)
             return res.status(200).json({
                 message: 'Avaliação adicionado com sucesso',
@@ -19,20 +21,32 @@ const create = async (req, res) => {
     }
 }
 
+const index = async (req, res) => {
+    const {bookId}=req.params;
+    try {
+        const comments = await commentModel.findAll({
+            where: {
+                BookId: bookId
+            }
+        })
+        return res.status(200).json(comments)
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+}
+
 const update = async (req, res) => {
     const { userId } = req.params;
     try {
         const [updated] = await commentModel.update(req.body, {
             where: {
                 UserId: userId,
-                id: req.body.id
+                BookId: req.body.bookId,
             }
-        })
+        });
         if (updated) {
-            const comment = await commentModel.findByPk(req.body.id);
             return res.status(200).json({
-                message: 'Avaliação editado com sucesso',
-                comment
+                message: 'Avaliação editada com sucesso',
             })
         } else throw new Error();
     } catch (err) {
@@ -46,11 +60,11 @@ const destroy = async (req, res) => {
         const deleted = await commentModel.destroy({
             where: {
                 UserId: userId,
-                id: req.body.id
+                BookId: req.body.bookId,
             }
         })
         if (deleted) {
-            return res.status(200).json({ message: 'Avaliação deletado com sucesso' });
+            return res.status(200).json({ message: 'Avaliação deletada com sucesso' });
         }
     } catch (err) {
         return res.status(500).json({ error: err });
@@ -60,5 +74,6 @@ const destroy = async (req, res) => {
 module.exports = {
     create,
     update,
-    destroy
+    destroy,
+    index
 }

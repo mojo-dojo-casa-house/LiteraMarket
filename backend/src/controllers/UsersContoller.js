@@ -1,6 +1,9 @@
+const { Op } = require('sequelize');
+const Auth = require('../config/auth');
 const authModel = require('../models/Auth');
 const avaliationModel = require('../models/Avaliation');
 const usersModel = require('../models/Users');
+const Books = require('../models/Books');
 
 const create = async (req, res) => {
     try {
@@ -8,9 +11,11 @@ const create = async (req, res) => {
             email: req.body.email,
             name: req.body.name
         });
+        const { password } = req.body;
+        const codedPass = Auth.generatePassword(password);
         await authModel.create({
-            hash: req.body.hash,
-            salt: req.body.salt,
+            hash: codedPass.hash,
+            salt: codedPass.salt,
             UserId: user.id,
         })
         return res.status(201).json({
@@ -111,6 +116,45 @@ const changePass = async (req, res) => {
     }
 }
 
+const login = async (req, res) => {
+    try {
+        const user = usersModel.findOne({
+            where: {
+
+                [Op.or]: {
+                    user: req.body.user,
+                    email: req.body.email,
+                }
+            }
+        })
+        if (!user)
+            return res.status(404).json({ message: 'Usuário não encontrado' });
+        const auth = authModel.findOne({ 
+            where: {
+                UserId: user.id
+            }
+        })
+        if(Auth.checkPassword(req.body.password, auth.hash, auth.salt)){
+            //const token = await Auth.
+        }
+    } catch (error) {
+
+    }
+}
+
+const buy = async (req, res) => {
+    const {userId} = req.params;
+    try {
+        const book = await Books.findByPk(req.body.bookId);
+        const user = await usersModel.findByPk(userId);
+        const buyed = await user.setBuy(book)
+        if (buyed) {
+            return res.status(200).json({ message: 'Produto comprado' });
+        }
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
 module.exports = {
     create,
     index,
@@ -120,4 +164,5 @@ module.exports = {
     avaliate,
     avaliations,
     changePass,
+    buy
 }
