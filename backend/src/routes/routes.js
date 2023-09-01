@@ -1,16 +1,25 @@
 const { Router } = require('express');
+const passport = require('passport');
+
 const router = Router();
+
 
 const usersController = require('../controllers/UsersContoller');
 
-router.post('/user', usersController.create);
-router.get('/user', usersController.index);
+router.use("/private", passport.authenticate('jwt', {session: false}));
+router.get('/private/getdetails', usersController.getDetails)
+
+router.post('/register', usersController.create);
+router.get('/user/index', usersController.index);
 router.get('/user/:id', usersController.show);
+
 router.put('/user/:id', usersController.update);
 router.delete('/user/:id', usersController.destroy);
 router.post('/user/:idAvaliator/avaliate', usersController.avaliate);
 router.get('/user/:id/avaliations', usersController.avaliations);
 router.post('/user/:id/changepass', usersController.changePass);
+router.post('/user/:userId/buy', usersController.buy);
+router.get('/login', usersController.login);
 
 const contactController = require('../controllers/ContactController');
 
@@ -59,12 +68,17 @@ router.post('/user/:userId/addcart', CartController.create);
 router.get('/user/:userId/cart', CartController.index);
 router.delete('/user/:userId/deletecart', CartController.destroy);
 
-
-//Rotas ainda não testadas
 const commentController = require('../controllers/CommentsController');
 
-router.post('/user/:book/books/:bookId/addComment', commentController.create);
-router.put('/user/:userId/books/:bookId/editComment', commentController.update);
-router.delete('/user/:userId/books/:bookId/deleteComment', commentController.destroy);
+router.post('/user/:userId/books/addComment', commentController.create);
+router.put('/user/:userId/books/editComment', commentController.update);
+router.get('/books/:bookId/comments', commentController.index);
+router.delete('/user/:userId/books/deleteComment', commentController.destroy);
+
+
+
+//------------------Rotas específicas para o APP------------------------/
+
+
 
 module.exports = router;
