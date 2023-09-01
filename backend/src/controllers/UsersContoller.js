@@ -184,6 +184,7 @@ const buy = async (req, res) => {
 
 async function addUserImage(request, response) 
 {
+    try{
         
         // const token = Auth.getToken(req);
         // const payload = Auth.decodeJwt(token);
@@ -211,7 +212,6 @@ async function addUserImage(request, response)
         return response.status(500).json(err);
     }
 };
-
 async function removeUserImage(request, response)
 {
     try {
