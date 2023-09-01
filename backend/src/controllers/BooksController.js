@@ -1,5 +1,6 @@
 const { Op } = require("sequelize");
-const Books = require("../models/Books")
+const Books = require("../models/Books");
+const fsPromise = require('fs').promises;
 
 //Função para criar uma instancia de livro dados os atributos pela requisição
 async function create(request, response) {
@@ -92,6 +93,72 @@ async function destroy(request, response) {
     }
 }
 
+async function addBookImage(request, response) 
+{
+    try {
+        
+        // const token = Auth.getToken(req);
+        // const payload = Auth.decodeJwt(token);
+        const { id } = request.params;
+
+        const book = await Books.findByPk(id);
+
+        if(!book) {
+            return response.status(500).json({message: "Usuário não encontrado"});
+        }
+
+        if(!request.file) {
+            return response.status(500).json({message: "Não foi feito o upload de nenhuma imagem"});
+        }
+
+        const path = process.env.APP_URL + "/uploads/image/" + request.file.filename;
+
+        await book.update({
+            image: path,
+        });
+
+        return response.status(200).json({message: "Foto adicionada com sucesso"});
+
+    } catch (err) {
+        return response.status(500).json(err);
+    }
+};
+
+async function removeBookImage(request, response)
+{
+    try {
+
+        // const token = Auth.getToken(req);
+        // const payload = Auth.decodeJwt(token);
+        const { id } = request.params;
+
+        const book = await Books.findByPk(id);
+
+        if(!book) {
+            return response.status(500).json({message: "Usuário não encontrado"});
+        }
+
+        if(!book.image) {
+            return response.status(500).json({message: "Nenhuma imagem foi encontrada"});
+        }
+
+        const pathDb = book.image.split("/").slice(-1)[0]
+        const photoImage = path.join(__dirname, '..', '..', 'uploads/images', pathDb);
+
+        await fsPromise.unlink(photoImage);
+
+        await book.update({
+            image: null
+        });
+
+        return response.status(200).json({message: "Foto removida com sucesso"});
+
+    } catch(err) {
+        return response.status(500).json({message: "Erro ao remover a foto"});
+    }
+
+};
+
 //Exportando modulos
 module.exports =
 {
@@ -99,5 +166,7 @@ module.exports =
     show,
     create,
     update,
-    destroy
+    destroy,
+    addBookImage,
+    removeBookImage
 }

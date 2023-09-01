@@ -3,7 +3,8 @@ const Auth = require('../config/auth');
 const authModel = require('../models/Auth');
 const avaliationModel = require('../models/Avaliation');
 const usersModel = require('../models/Users');
-const Books = require('../models/Books');
+const fsPromise = require('fs').promises;
+
 
 const create = async (req, res) => {
     try {
@@ -179,6 +180,74 @@ const buy = async (req, res) => {
         return res.status(500).json(error);
     }
 }
+
+
+async function addUserImage(request, response) 
+{
+        
+        // const token = Auth.getToken(req);
+        // const payload = Auth.decodeJwt(token);
+        const { id } = request.params;
+
+        const user = await usersModel.findByPk(id);
+
+        if(!user) {
+            return response.status(500).json({message: "Usuário não encontrado"});
+        }
+
+        if(!request.file) {
+            return response.status(500).json({message: "Não foi feito o upload de nenhuma imagem"});
+        }
+
+        const path = process.env.APP_URL + "/uploads/image/" + request.file.filename;
+
+        await user.update({
+            image: path,
+        });
+
+        return response.status(200).json({message: "Foto adicionada com sucesso"});
+
+    } catch (err) {
+        return response.status(500).json(err);
+    }
+};
+
+async function removeUserImage(request, response)
+{
+    try {
+
+        // const token = Auth.getToken(req);
+        // const payload = Auth.decodeJwt(token);
+        const { id } = request.params;
+
+        const user = await User.findByPk(id);
+
+        if(!user) {
+            return response.status(500).json({message: "Usuário não encontrado"});
+        }
+
+        if(!user.image) {
+            return response.status(500).json({message: "Nenhuma imagem foi encontrada"});
+        }
+
+        const pathDb = user.image.split("/").slice(-1)[0]
+        const photoImage = path.join(__dirname, '..', '..', 'uploads/images', pathDb);
+
+        await fsPromise.unlink(photoImage);
+
+        await user.update({
+            image: null
+        });
+
+        return response.status(200).json({message: "Foto removida com sucesso"});
+
+    } catch(err) {
+        return response.status(500).json({message: "Erro ao remover a foto"});
+    }
+
+};
+
+
 module.exports = {
     create,
     index,
@@ -190,5 +259,7 @@ module.exports = {
     avaliations,
     changePass,
     buy,
-    login
+    login,
+    addUserImage,
+    removeUserImage
 }
