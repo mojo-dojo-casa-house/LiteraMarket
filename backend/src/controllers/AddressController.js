@@ -1,11 +1,15 @@
 const addressModel = require('../models/Address');
 const userModel = require('../models/Users');
+const Auth = require('../config/auth')
 
 const create = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const address = await addressModel.create(req.body);
-        const user = await userModel.findByPk(userId);
         await address.setUser(user);
         return res.status(200).json({
             message: 'Endereço adicionado com sucesso',
@@ -17,11 +21,15 @@ const create = async (req, res) => {
 }
 
 const index = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const address = await addressModel.findAll({
             where: {
-                UserId: userId
+                UserId: user.id
             }
         });
         return res.status(200).json(address);
@@ -31,11 +39,15 @@ const index = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const [updated] = await addressModel.update(req.body, {
             where: {
-                UserId: userId,
+                UserId: user.id,
                 id: req.body.id
             }
         })
@@ -52,11 +64,15 @@ const update = async (req, res) => {
 }
 
 const destroy = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const deleted = await addressModel.destroy({
             where: {
-                    UserId: userId,
+                    UserId: user.id,
                     id: req.body.id
             }
         })

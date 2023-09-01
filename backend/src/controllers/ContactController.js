@@ -1,12 +1,16 @@
 const userModel = require('../models/Users');
 const contactModel = require('../models/Contact');
+const Auth = require('../config/auth')
 const { Op } = require('sequelize');
 
 const create = async (req, res) => {
-    const { userId } = req.params
     try {
         const contact = await contactModel.create(req.body);
-        const user = await userModel.findByPk(userId);
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         await contact.setUser(user);
         return res.status(200).json({
             message: 'Contato criado com sucesso',
@@ -18,11 +22,15 @@ const create = async (req, res) => {
 }
 
 const index = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const contact = await contactModel.findAll({
             where: {
-                UserId: userId
+                UserId: user.id
             }
         })
         return res.status(200).json(contact);
@@ -32,11 +40,15 @@ const index = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const [updated] = await contactModel.update(req.body, { 
             where: { 
-                UserId: userId, 
+                UserId: user.id, 
                 id: req.body.id 
             } 
         })
@@ -51,12 +63,16 @@ const update = async (req, res) => {
 }
 
 const destroy = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const deleted = await contactModel.destroy({
             where: {
                 [Op.and]: {
-                    UserId: userId,
+                    UserId: user.id,
                     id: req.body.id
                 }
             }

@@ -1,11 +1,16 @@
 const cardsModel = require('../models/PaymentCards');
 const userModel = require('../models/Users');
+const Auth = require('../config/auth');
 
 const create = async (req, res) => {
-    const { userId } = req.params;
     try {
         const card = await cardsModel.create(req.body);
-        const user = await userModel.findByPk(userId);
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+
+		if(!user)
+			return res.status(404).json({message: "Usuario não encontrado."});
         await card.setUser(user);
         return res.status(200).json({
             message: 'Endereço adicionado com sucesso',
@@ -17,11 +22,16 @@ const create = async (req, res) => {
 }
 
 const index = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+
+		if(!user)
+			return res.status(404).json({message: "Usuario não encontrado."});
         const cards = await cardsModel.findAll({
             where: {
-                UserId: userId
+                UserId: user.id
             }
         });
         return res.status(200).json(cards);
@@ -31,11 +41,16 @@ const index = async (req, res) => {
 }
 
 const update = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+
+		if(!user)
+			return res.status(404).json({message: "Usuario não encontrado."});
         const [updated] = await cardsModel.update(req.body, {
             where: {
-                UserId: userId,
+                UserId: user.id,
                 id: req.body.id
             }
         })
@@ -52,11 +67,16 @@ const update = async (req, res) => {
 }
 
 const destroy = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+
+		if(!user)
+			return res.status(404).json({message: "Usuario não encontrado."});
         const deleted = await cardsModel.destroy({
             where: {
-                    UserId: userId,
+                    UserId: user.id,
                     id: req.body.id
             }
         })

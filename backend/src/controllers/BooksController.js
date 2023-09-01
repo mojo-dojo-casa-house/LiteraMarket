@@ -1,11 +1,17 @@
 const { Op } = require("sequelize");
 const Books = require("../models/Books");
 const fsPromise = require('fs').promises;
+const Auth = require('../config/auth')
+const usersModel = require('../models/Users')
 
 //Função para criar uma instancia de livro dados os atributos pela requisição
 async function create(request, response) {
-    const { userId } = request.params;
     try {
+        const token = Auth.getToken(request);
+        const payload = Auth.decodeJwt(token);
+        const user = await usersModel.findByPk(payload.sub);
+        if (!user)
+            return res.status(404).json({ message: 'Usuário não encontrado' });
         const book = await Books.create(
             {
                 value: request.body.value,
@@ -14,7 +20,7 @@ async function create(request, response) {
                 author: request.body.author,
                 image: request.body.image,
                 genre: request.body.genre,
-                SellerId: userId
+                SellerId: user.id
             }
         );
         return response.status(201).json({ message: "Livro Cadastrado com sucesso", book: book });
@@ -55,12 +61,16 @@ async function show(request, response) {
 
 //Função para editar um livro especifico
 async function update(request, response) {
-    const { userId } = request.params;
     try {
+        const token = Auth.getToken(request);
+        const payload = Auth.decodeJwt(token);
+        const user = await usersModel.findByPk(payload.sub);
+        if (!user)
+            return res.status(404).json({ message: 'Usuário não encontrado' });
         const [updated] = await Books.update(request.body, {
             where: {
                 id: request.body.id,
-                SellerId: userId
+                SellerId: user.id
             }
         });
         if (updated) {
@@ -76,12 +86,16 @@ async function update(request, response) {
 
 //Função para deletar um livro do banco de dados
 async function destroy(request, response) {
-    const { userId } = request.params;
     try {
+        const token = Auth.getToken(request);
+        const payload = Auth.decodeJwt(token);
+        const user = await usersModel.findByPk(payload.sub);
+        if (!user)
+            return res.status(404).json({ message: 'Usuário não encontrado' });
         const deleted = await Books.destroy({
             where: {
                 id: request.body.id,
-                SellerId: userId
+                SellerId: user.id
             }
         })
         if (deleted)
@@ -93,22 +107,23 @@ async function destroy(request, response) {
     }
 }
 
-async function addBookImage(request, response) 
-{
+async function addBookImage(request, response) {
     try {
-        
-        // const token = Auth.getToken(req);
-        // const payload = Auth.decodeJwt(token);
-        const { id } = request.params;
+
+        const token = Auth.getToken(request);
+        const payload = Auth.decodeJwt(token);
+        const user = await usersModel.findByPk(payload.sub);
+        if (!user)
+            return res.status(404).json({ message: 'Usuário não encontrado' });
 
         const book = await Books.findByPk(id);
 
-        if(!book) {
-            return response.status(500).json({message: "Usuário não encontrado"});
+        if (!book) {
+            return response.status(500).json({ message: "Usuário não encontrado" });
         }
 
-        if(!request.file) {
-            return response.status(500).json({message: "Não foi feito o upload de nenhuma imagem"});
+        if (!request.file) {
+            return response.status(500).json({ message: "Não foi feito o upload de nenhuma imagem" });
         }
 
         const path = process.env.APP_URL + "/uploads/image/" + request.file.filename;
@@ -117,29 +132,30 @@ async function addBookImage(request, response)
             image: path,
         });
 
-        return response.status(200).json({message: "Foto adicionada com sucesso"});
+        return response.status(200).json({ message: "Foto adicionada com sucesso" });
 
     } catch (err) {
         return response.status(500).json(err);
     }
 };
 
-async function removeBookImage(request, response)
-{
+async function removeBookImage(request, response) {
     try {
 
-        // const token = Auth.getToken(req);
-        // const payload = Auth.decodeJwt(token);
-        const { id } = request.params;
+        const token = Auth.getToken(request);
+        const payload = Auth.decodeJwt(token);
+        const user = await usersModel.findByPk(payload.sub);
+        if (!user)
+            return res.status(404).json({ message: 'Usuário não encontrado' });
 
         const book = await Books.findByPk(id);
 
-        if(!book) {
-            return response.status(500).json({message: "Usuário não encontrado"});
+        if (!book) {
+            return response.status(500).json({ message: "Usuário não encontrado" });
         }
 
-        if(!book.image) {
-            return response.status(500).json({message: "Nenhuma imagem foi encontrada"});
+        if (!book.image) {
+            return response.status(500).json({ message: "Nenhuma imagem foi encontrada" });
         }
 
         const pathDb = book.image.split("/").slice(-1)[0]
@@ -151,10 +167,10 @@ async function removeBookImage(request, response)
             image: null
         });
 
-        return response.status(200).json({message: "Foto removida com sucesso"});
+        return response.status(200).json({ message: "Foto removida com sucesso" });
 
-    } catch(err) {
-        return response.status(500).json({message: "Erro ao remover a foto"});
+    } catch (err) {
+        return response.status(500).json({ message: "Erro ao remover a foto" });
     }
 
 };

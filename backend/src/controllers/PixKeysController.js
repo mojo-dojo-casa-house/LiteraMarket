@@ -1,5 +1,6 @@
 const pixModel = require('../models/PixKeys');
 const userModel = require('../models/Users');
+const Auth = require ('../config/auth')
 
 const pixValidation = (type, pix) => {
     const cpf = /\d{3}.\d{3}.\d{3}-\d{2}/;
@@ -30,11 +31,15 @@ const pixValidation = (type, pix) => {
 }
 
 const create = async (req, res) => {
-    const { userId } = req.params;
     if (pixValidation(req.body.type, req.body.key)) {
         try {
             const pix = await pixModel.create(req.body);
-            const user = await userModel.findByPk(userId);
+            const token = Auth.getToken(req);
+            const payload = Auth.decodeJwt(token);
+            const user = await userModel.findByPk(payload.sub);
+
+            if (!user)
+                return res.status(404).json({ message: "Usuario não encontrado." });
             await pix.setUser(user);
             return res.status(200).json({
                 message: 'Endereço adicionado com sucesso',
@@ -44,15 +49,20 @@ const create = async (req, res) => {
             return res.status(500).json({ error: err });
         }
     }
-    else return res.status(400).json({message:'Chave pix mal formatada para o tipo informado.'});
+    else return res.status(400).json({ message: 'Chave pix mal formatada para o tipo informado.' });
 }
 
 const index = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+
+		if(!user)
+			return res.status(404).json({message: "Usuario não encontrado."});
         const pixs = await pixModel.findAll({
             where: {
-                UserId: userId
+                UserId: user.id
             }
         });
         return res.status(200).json(pixs);
@@ -62,11 +72,16 @@ const index = async (req, res) => {
 }
 
 const destroy = async (req, res) => {
-    const { userId } = req.params;
     try {
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+
+		if(!user)
+			return res.status(404).json({message: "Usuario não encontrado."});
         const deleted = await pixModel.destroy({
             where: {
-                UserId: userId,
+                UserId: user.id,
                 id: req.body.id
             }
         })

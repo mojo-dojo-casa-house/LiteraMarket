@@ -1,10 +1,14 @@
 const booksModel = require('../models/Books');
 const userModel = require('../models/Users');
+const Auth = require('../config/auth')
 
 const create = async (req, res) => {
-    const { userId } = req.params;
     try {
-        const user = await userModel.findByPk(userId);
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const book = await booksModel.findByPk(req.body.bookId)
         const favorite = user.setUserFavorite(book)
         return res.status(200).json({
@@ -17,10 +21,12 @@ const create = async (req, res) => {
 }
 
 const index = async (req,res) => {
-    const {userId} = req.params;
     try {
-        const user = await userModel.findByPk(userId)
-        console.log(user)
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const favorites = await user.getUserFavorite();
         return res.status(200).json(favorites);
     } catch (err) {
@@ -29,9 +35,12 @@ const index = async (req,res) => {
 }
 
 const destroy = async (req, res) => {
-    const { userId } = req.params;
     try {
-        const user = await userModel.findByPk(userId);
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await userModel.findByPk(payload.sub);
+        if(!user)
+            return res.status(404).json({message: 'Usuário não encontrado'});
         const book = await booksModel.findByPk(req.body.bookId)
         const deleted = await user.removeUserFavorite(book)
         if (deleted) {

@@ -2,9 +2,13 @@ const booksModel = require('../models/Books');
 const userModel = require('../models/Users');
 
 const create = async (req, res) => {
-    const { userId } = req.params;
     try {
-        const user = await userModel.findByPk(userId);
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        const user = await userModel.findByPk(payload.sub);
+
+        if (!user)
+            return res.status(404).json({ message: "Usuario não encontrado." });
         const book = await booksModel.findByPk(req.body.bookId)
         const cart = user.setUserCart(book)
         return res.status(200).json({
@@ -16,10 +20,14 @@ const create = async (req, res) => {
     }
 }
 
-const index = async (req,res) => {
-    const {userId} = req.params;
+const index = async (req, res) => {
     try {
-        const user = await userModel.findByPk(userId)
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        const user = await userModel.findByPk(payload.sub);
+
+        if (!user)
+            return res.status(404).json({ message: "Usuario não encontrado." });
         const carts = await user.getUserCart();
         return res.status(200).json(carts);
     } catch (err) {
@@ -30,7 +38,12 @@ const index = async (req,res) => {
 const destroy = async (req, res) => {
     const { userId } = req.params;
     try {
-        const user = await userModel.findByPk(userId);
+        const token = Auth.getToken(req);
+        const payload = Auth.decodeJwt(token);
+        const user = await userModel.findByPk(payload.sub);
+
+        if (!user)
+            return res.status(404).json({ message: "Usuario não encontrado." });
         const book = await booksModel.findByPk(req.body.bookId)
         const deleted = await user.removeUserCart(book)
         if (deleted) {

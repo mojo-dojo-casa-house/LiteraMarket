@@ -38,9 +38,10 @@ const index = async (req, res) => {
 }
 
 const show = async (req, res) => {
-    const { id } = req.params;
     try {
-        const user = await usersModel.findByPk(id);
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await usersModel.findByPk(payload.sub);
         return res.status(200).json({
             message: 'Usuário encontrado',
             user: user
@@ -122,9 +123,10 @@ const avaliations = async (req, res) => {
 }
 
 const changePass = async (req, res) => {
-    const { id } = req.params;
     try {
-        const user = await authModel.findByPk(id);
+        const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await usersModel.findByPk(payload.sub);
         if (Auth.checkPassword(req.body.password, user.auth, user.salt))
             return res.status(401).json({ message: 'Senha Invalida' })
         const codedNewPass = Auth.generatePassword(req.body.newPassword)
