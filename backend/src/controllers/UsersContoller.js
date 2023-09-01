@@ -49,6 +49,22 @@ const show = async (req, res) => {
     }
 }
 
+const getDetails = async(req, res) => {
+	try {
+
+		const token = Auth.getToken(req);
+		const payload = Auth.decodeJwt(token);
+		const user = await usersModel.findByPk(payload.sub);
+
+		if(!user)
+			return res.status(404).json({message: "Usuario não encontrado."});
+		return res.status(200).json({user:user});
+		
+	} catch (e) {
+		return res.status(500).json({err: e})
+	}
+}
+
 const update = async (req, res) => {
     const { id } = req.params;
     try {
@@ -107,7 +123,14 @@ const avaliations = async (req, res) => {
 const changePass = async (req, res) => {
     const { id } = req.params;
     try {
-        const [updated] = await authModel.update(req.body, { where: { UserId: id } });
+        const user = await authModel.findByPk(id);
+        if (Auth.checkPassword(req.body.password, user.auth, user.salt))
+            return res.status(401).json({ message: 'Senha Invalida' })
+        const codedNewPass = Auth.generatePassword(req.body.newPassword)
+        const [updated] = await authModel.update({
+            hash: codedNewPass.hash,
+            salt: codedNewPass.salt
+        }, { where: { UserId: id } });
         if (updated)
             return res.status(201).json({ message: 'Senha alterada com sucesso' });
         else throw new Error();
@@ -118,32 +141,33 @@ const changePass = async (req, res) => {
 
 const login = async (req, res) => {
     try {
-        const user = usersModel.findOne({
+        const user = await usersModel.findOne({
             where: {
-
-                [Op.or]: {
-                    user: req.body.user,
-                    email: req.body.email,
-                }
+                email: req.body.email,
             }
         })
         if (!user)
             return res.status(404).json({ message: 'Usuário não encontrado' });
-        const auth = authModel.findOne({ 
+
+        const auth = await authModel.findOne({
             where: {
                 UserId: user.id
             }
         })
-        if(Auth.checkPassword(req.body.password, auth.hash, auth.salt)){
-            //const token = await Auth.
+        if (Auth.checkPassword(req.body.password, auth.hash, auth.salt)) {
+            console.log(user)
+            const token = Auth.generateJwt(user);
+            return res.status(200).json({ token: token })
+        } else {
+            return res.status(401).json({ message: 'Senha inválida' })
         }
     } catch (error) {
-
+        return res.status(500).json({ error })
     }
 }
 
 const buy = async (req, res) => {
-    const {userId} = req.params;
+    const { userId } = req.params;
     try {
         const book = await Books.findByPk(req.body.bookId);
         const user = await usersModel.findByPk(userId);
@@ -159,10 +183,12 @@ module.exports = {
     create,
     index,
     show,
+    getDetails,
     update,
     destroy,
     avaliate,
     avaliations,
     changePass,
-    buy
+    buy,
+    login
 }
