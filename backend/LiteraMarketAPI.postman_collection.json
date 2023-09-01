@@ -24,23 +24,18 @@
 								},
 								{
 									"key": "email",
-									"value": "lucas@gmail.com",
+									"value": "lucas@jsajdncklasjn.com",
 									"type": "text"
 								},
 								{
-									"key": "hash",
-									"value": "8cur23mc",
-									"type": "text"
-								},
-								{
-									"key": "salt",
-									"value": "cm93x39u239mw",
+									"key": "password",
+									"value": "M1nh@S3nh@!",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user",
+							"raw": "http://192.168.0.139:3333/register",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -50,7 +45,7 @@
 							],
 							"port": "3333",
 							"path": [
-								"user"
+								"register"
 							]
 						}
 					},
@@ -229,14 +224,19 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "hash",
-									"value": "hashalterado",
+									"key": "password",
+									"value": "M1nh@S3nh@!",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "AgoraMinhaSenhaÉEssa",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/2/changepass",
+							"raw": "http://192.168.0.139:3333/user/1/changepass",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -247,10 +247,92 @@
 							"port": "3333",
 							"path": [
 								"user",
-								"2",
+								"1",
 								"changepass"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bookId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/buy",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "lucas@jsajdncklasjn.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "M1nh@S3nh@!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDetails",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -1224,19 +1306,14 @@
 									"type": "text"
 								},
 								{
-									"key": "BookId",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "UserId",
+									"key": "bookId",
 									"value": "1",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user/1/books/1/addcomment",
+							"raw": "http://192.168.0.139:3333/user/1/books/addcomment",
 							"protocol": "http",
 							"host": [
 								"192",
@@ -1249,8 +1326,106 @@
 								"user",
 								"1",
 								"books",
-								"1",
 								"addcomment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "comment",
+									"value": "Led Zeppelin é a melhor banda que já existiu",
+									"type": "text"
+								},
+								{
+									"key": "bookId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/books/editcomment",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"books",
+								"editcomment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "indexComments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/books/1/comments",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"books",
+								"1",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComments",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bookId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/user/1/books/deleteComment",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"user",
+								"1",
+								"books",
+								"deleteComment"
 							]
 						}
 					},
@@ -1454,6 +1629,365 @@
 								"deletecart"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Integração",
+			"item": [
+				{
+					"name": "perfil",
+					"item": [
+						{
+							"name": "perfil",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MzU1OTkyMDU1NSwiZXhwIjoxNjkzNTYwNTI1MzU1fQ.Je2Eo65JoLoz5RbjtxhpBLpEUV_CItT5jrdBkSxBMDIRJuJXGvZIa6i3e2rk-SNKNZu8NvwNfFdNl5IsLArolDF9B3PbmW29tFxYTR9uSnmux5YRcjFk6mQZ0AWH1Gv7Osc9CBqNVhJkCdYr6F5cUD_XpkUnuQ8JmyTAHFZHncaLzaJsupQLJCUfgMbpCUxZEb8DFySvo72uc680hiSQmdd93VQGCZmnkTcKF1gjO7XWzCY0avcCyU5bzqiv2DeW7EUcTm8jLlW9eLyUnDr-qW3U1prEIXE2s0FC4gtOPBkXbDlB4ewQs7ZX3_NegN96ZnZTSBHP_jfXfeRvd8wJR0O7VnlcdB8Zj9VS9CCE7eAdB1_upLsaCwIdYcMZG6egwVincpco6b5DUhee5hLSpuHHH5JfERwu-lnOmvum2ndFxqtIgocqhBEr8Yxks1ua6t0XSFbKeM68EjguGTLtGWbt7oOlUxCs32TQv9zmOEA7kSa6QhVAHtKdRMhQXAbVZK3kJAClwkc08B08V6jIWIsKUsiAcot_8UjiGRMSGioV7xIeZul0S7Nfd09DgvWyiI6h95wFR2YhuHGhRMspk79zwEFepJOrb6F_UeLLnyjIiYEXo2b5fXGeL7LG8JLkb6Vaj19PNbs-BpQDHPBHjWUmSNOeCBixRH35B7uKMS4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.0.139:3333/user/perfil",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"0",
+										"139"
+									],
+									"port": "3333",
+									"path": [
+										"user",
+										"perfil"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addEndereco",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MzU1OTkyMDU1NSwiZXhwIjoxNjkzNTYwNTI1MzU1fQ.Je2Eo65JoLoz5RbjtxhpBLpEUV_CItT5jrdBkSxBMDIRJuJXGvZIa6i3e2rk-SNKNZu8NvwNfFdNl5IsLArolDF9B3PbmW29tFxYTR9uSnmux5YRcjFk6mQZ0AWH1Gv7Osc9CBqNVhJkCdYr6F5cUD_XpkUnuQ8JmyTAHFZHncaLzaJsupQLJCUfgMbpCUxZEb8DFySvo72uc680hiSQmdd93VQGCZmnkTcKF1gjO7XWzCY0avcCyU5bzqiv2DeW7EUcTm8jLlW9eLyUnDr-qW3U1prEIXE2s0FC4gtOPBkXbDlB4ewQs7ZX3_NegN96ZnZTSBHP_jfXfeRvd8wJR0O7VnlcdB8Zj9VS9CCE7eAdB1_upLsaCwIdYcMZG6egwVincpco6b5DUhee5hLSpuHHH5JfERwu-lnOmvum2ndFxqtIgocqhBEr8Yxks1ua6t0XSFbKeM68EjguGTLtGWbt7oOlUxCs32TQv9zmOEA7kSa6QhVAHtKdRMhQXAbVZK3kJAClwkc08B08V6jIWIsKUsiAcot_8UjiGRMSGioV7xIeZul0S7Nfd09DgvWyiI6h95wFR2YhuHGhRMspk79zwEFepJOrb6F_UeLLnyjIiYEXo2b5fXGeL7LG8JLkb6Vaj19PNbs-BpQDHPBHjWUmSNOeCBixRH35B7uKMS4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "cep",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "street",
+											"value": "rua djcnsndcns",
+											"type": "text"
+										},
+										{
+											"key": "number",
+											"value": "23",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "cadcaks",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "powkmca",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.0.139:3333/user/endereco/add",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"0",
+										"139"
+									],
+									"port": "3333",
+									"path": [
+										"user",
+										"endereco",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getEnderecos",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MzU1OTkyMDU1NSwiZXhwIjoxNjkzNTYwNTI1MzU1fQ.Je2Eo65JoLoz5RbjtxhpBLpEUV_CItT5jrdBkSxBMDIRJuJXGvZIa6i3e2rk-SNKNZu8NvwNfFdNl5IsLArolDF9B3PbmW29tFxYTR9uSnmux5YRcjFk6mQZ0AWH1Gv7Osc9CBqNVhJkCdYr6F5cUD_XpkUnuQ8JmyTAHFZHncaLzaJsupQLJCUfgMbpCUxZEb8DFySvo72uc680hiSQmdd93VQGCZmnkTcKF1gjO7XWzCY0avcCyU5bzqiv2DeW7EUcTm8jLlW9eLyUnDr-qW3U1prEIXE2s0FC4gtOPBkXbDlB4ewQs7ZX3_NegN96ZnZTSBHP_jfXfeRvd8wJR0O7VnlcdB8Zj9VS9CCE7eAdB1_upLsaCwIdYcMZG6egwVincpco6b5DUhee5hLSpuHHH5JfERwu-lnOmvum2ndFxqtIgocqhBEr8Yxks1ua6t0XSFbKeM68EjguGTLtGWbt7oOlUxCs32TQv9zmOEA7kSa6QhVAHtKdRMhQXAbVZK3kJAClwkc08B08V6jIWIsKUsiAcot_8UjiGRMSGioV7xIeZul0S7Nfd09DgvWyiI6h95wFR2YhuHGhRMspk79zwEFepJOrb6F_UeLLnyjIiYEXo2b5fXGeL7LG8JLkb6Vaj19PNbs-BpQDHPBHjWUmSNOeCBixRH35B7uKMS4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.0.139:3333/user/endereco/",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"0",
+										"139"
+									],
+									"port": "3333",
+									"path": [
+										"user",
+										"endereco",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addLivros",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MzU1OTkyMDU1NSwiZXhwIjoxNjkzNTYwNTI1MzU1fQ.Je2Eo65JoLoz5RbjtxhpBLpEUV_CItT5jrdBkSxBMDIRJuJXGvZIa6i3e2rk-SNKNZu8NvwNfFdNl5IsLArolDF9B3PbmW29tFxYTR9uSnmux5YRcjFk6mQZ0AWH1Gv7Osc9CBqNVhJkCdYr6F5cUD_XpkUnuQ8JmyTAHFZHncaLzaJsupQLJCUfgMbpCUxZEb8DFySvo72uc680hiSQmdd93VQGCZmnkTcKF1gjO7XWzCY0avcCyU5bzqiv2DeW7EUcTm8jLlW9eLyUnDr-qW3U1prEIXE2s0FC4gtOPBkXbDlB4ewQs7ZX3_NegN96ZnZTSBHP_jfXfeRvd8wJR0O7VnlcdB8Zj9VS9CCE7eAdB1_upLsaCwIdYcMZG6egwVincpco6b5DUhee5hLSpuHHH5JfERwu-lnOmvum2ndFxqtIgocqhBEr8Yxks1ua6t0XSFbKeM68EjguGTLtGWbt7oOlUxCs32TQv9zmOEA7kSa6QhVAHtKdRMhQXAbVZK3kJAClwkc08B08V6jIWIsKUsiAcot_8UjiGRMSGioV7xIeZul0S7Nfd09DgvWyiI6h95wFR2YhuHGhRMspk79zwEFepJOrb6F_UeLLnyjIiYEXo2b5fXGeL7LG8JLkb6Vaj19PNbs-BpQDHPBHjWUmSNOeCBixRH35B7uKMS4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "kamdsckaldclamdc",
+											"type": "text"
+										},
+										{
+											"key": "value",
+											"value": "2433",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.0.139:3333/user/livro/add",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"0",
+										"139"
+									],
+									"port": "3333",
+									"path": [
+										"user",
+										"livro",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add pix",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MzU1OTkyMDU1NSwiZXhwIjoxNjkzNTYwNTI1MzU1fQ.Je2Eo65JoLoz5RbjtxhpBLpEUV_CItT5jrdBkSxBMDIRJuJXGvZIa6i3e2rk-SNKNZu8NvwNfFdNl5IsLArolDF9B3PbmW29tFxYTR9uSnmux5YRcjFk6mQZ0AWH1Gv7Osc9CBqNVhJkCdYr6F5cUD_XpkUnuQ8JmyTAHFZHncaLzaJsupQLJCUfgMbpCUxZEb8DFySvo72uc680hiSQmdd93VQGCZmnkTcKF1gjO7XWzCY0avcCyU5bzqiv2DeW7EUcTm8jLlW9eLyUnDr-qW3U1prEIXE2s0FC4gtOPBkXbDlB4ewQs7ZX3_NegN96ZnZTSBHP_jfXfeRvd8wJR0O7VnlcdB8Zj9VS9CCE7eAdB1_upLsaCwIdYcMZG6egwVincpco6b5DUhee5hLSpuHHH5JfERwu-lnOmvum2ndFxqtIgocqhBEr8Yxks1ua6t0XSFbKeM68EjguGTLtGWbt7oOlUxCs32TQv9zmOEA7kSa6QhVAHtKdRMhQXAbVZK3kJAClwkc08B08V6jIWIsKUsiAcot_8UjiGRMSGioV7xIeZul0S7Nfd09DgvWyiI6h95wFR2YhuHGhRMspk79zwEFepJOrb6F_UeLLnyjIiYEXo2b5fXGeL7LG8JLkb6Vaj19PNbs-BpQDHPBHjWUmSNOeCBixRH35B7uKMS4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "type",
+											"value": "email",
+											"type": "text"
+										},
+										{
+											"key": "key",
+											"value": "lucas@saasdcasdc.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.0.139:3333/user/pix/add",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"0",
+										"139"
+									],
+									"port": "3333",
+									"path": [
+										"user",
+										"pix",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "showPix",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "lucas@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "lucas",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/registrar",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"registrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "lucas@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "senha123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.0.139:3333/login",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "home",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.0.139:3333/home",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"0",
+								"139"
+							],
+							"port": "3333",
+							"path": [
+								"home"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pagamento",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
