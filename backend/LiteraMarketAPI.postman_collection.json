@@ -1242,6 +1242,37 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "uploadImageBook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/danil/Downloads/a-book-3088775_1280.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/private/book/addImage/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"private",
+								"book",
+								"addImage",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

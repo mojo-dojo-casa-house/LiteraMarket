@@ -104,7 +104,7 @@ async function addBookImage(request, response)
         const book = await Books.findByPk(id);
 
         if(!book) {
-            return response.status(500).json({message: "Usuário não encontrado"});
+            return response.status(500).json({message: "Livro não encontrado"});
         }
 
         if(!request.file) {
