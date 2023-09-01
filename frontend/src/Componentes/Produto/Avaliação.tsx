@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { View,Image, Text, StyleSheet, Pressable } from 'react-native';
-
 import styled from 'styled-components/native';
 import global from '../../globalStyles';
 

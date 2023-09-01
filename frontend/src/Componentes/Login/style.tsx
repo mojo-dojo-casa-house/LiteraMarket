@@ -3,7 +3,7 @@ import global from '../../globalStyles';
 
 
 export const Conteiner = styled.View`
-  margin-top:230px; 
+  margin-top:210px; 
   align-items:center; 
 
 `;
@@ -67,12 +67,32 @@ export const BotãoLogin = styled.Pressable`
  background-color:${global.colors.Azul}; 
 
 `;
+export const BotãoVisitante = styled.Pressable`
+ flexDirection:row;
+ align-items:center;
+ justify-content:center;
+ width: 165px;
+ height: 56px;
+ margin-top:12px;
+ border-radius:76px;
+ text-align: center; 
+ background-color:${global.colors.Azul}; 
 
+`;
 export const BotãoTexto = styled.Text`
 font-family:${global.fonts.roboto};
 font-size: 24px;
 font-weight: 200;
  color:${global.colors.Branco}; 
+
+`;
+export const BotãoVisitanteTexto = styled.Text`
+font-family:${global.fonts.roboto};
+font-size: 16px;
+font-weight: 200;
+color:${global.colors.Branco}; 
+text-align: center; 
+
 
 `;
 
@@ -108,7 +128,7 @@ export const ConteinerConecteHorizontal= styled.View`
 flex-direction: row;
 align-items:center;
 justify-content:center;
-margin-top:25px;
+margin-top:15px;
 
 `;
 export const ConteinerHorizontal= styled.View`
@@ -124,8 +144,8 @@ height: 61px;
 border-radius: 100px;
 margin-left:51px;
 margin-right:51px;
-margin-top:30px;
-margin-bottom:30px;
+margin-top:20px;
+margin-bottom:20px;
 `;
 
 export const NãoPossuiConta= styled.Text`

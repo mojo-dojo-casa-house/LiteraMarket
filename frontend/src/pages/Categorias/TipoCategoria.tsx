@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import {Container,CabeçalhoContainer,ContainerHorizontal,Clicavel,ImagemVoltar,FavoritosContainer,TextoTitulo,ImagemBolsa, MeioConteiner,NumItensText,Rodape,IndicadorPonto} from './TipoStyle';
-import { View, Pressable, Image,Text  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import RodapePagHome from '../../Componentes/Home/Rodape/Rodape';
 import FiltroCategorias from '../../Componentes/Categorias/filtro';
-import { StyleSheet } from 'react-native';
-
+import { useRoute } from '@react-navigation/native';
 
 export default function Tipo() {
     const navigation = useNavigation();
     const [BolsaAtiva, setBolsaAtiva] = useState(true);
+    const route = useRoute();
+    const { nome } = route.params || {};
 
     return (
         <Container>
@@ -20,7 +20,7 @@ export default function Tipo() {
                  <ImagemVoltar source={require('../../../assets/SetaVoltar.png')} />
                 </Clicavel>
                     <FavoritosContainer>
-                        <TextoTitulo>Categoria</TextoTitulo>
+                        <TextoTitulo>{nome}</TextoTitulo>
                     </FavoritosContainer>
                     
                         {BolsaAtiva&&<IndicadorPonto></IndicadorPonto >}

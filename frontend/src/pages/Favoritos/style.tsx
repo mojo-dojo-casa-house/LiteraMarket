@@ -21,6 +21,20 @@ export const TituloText = styled.Text`
   color: ${global.colors.AzulEscuro};
 `;
 
+export const ConteinerProdutos = styled.View`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 90px;
+  width: 414px;
+  padding-horizontal: 16px;
+`;
+export const ContainerProduto = styled.View`
+ flex:1; 
+ align-items:center; 
+`;
+
 export const Bolinha = styled.View`
   width: 10px;
   height: 10px;

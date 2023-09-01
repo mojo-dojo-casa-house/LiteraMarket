@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import { View, Image, Text, Pressable, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {CarrinhoOverlay,Container,PreçoProduto,Produto,ImageProduto,ImgProduto,FavoritosOverlay,Button,ImgProdutoCompra,ImgProdutoEstrela,GeneroProduto,AutorProduto,TituloProduto,}from './ThumbnailProdutoStyle';
-
-
-
+import { Clicavel } from '../Cabeçalho/CabaçalhoStyle';
 
 
 const ProdutoMiniatura = () => {
@@ -52,7 +49,7 @@ const ProdutoMiniatura = () => {
   return (
     <Container>     
       {ProdutosData.map(produto => (
-        <Produto key={produto.id} onPress={() => navigation.navigate('Produto' as never)}>
+        <Produto key={produto.id} onPress={() => navigation.navigate('Produto' as never, {favorito: produto.favorito})}>
           <ImgProduto source={produto.image} />
           <GeneroProduto>{produto.genero}</GeneroProduto>
           <TituloProduto>{produto.titulo}</TituloProduto>
@@ -61,9 +58,9 @@ const ProdutoMiniatura = () => {
           <PreçoProduto>{produto.preco}</PreçoProduto>
 
           <CarrinhoOverlay>
-            <Pressable>
+            <Clicavel>
               <ImgProdutoCompra source={require('../../../../assets/CompraMINI.png')} />
-            </Pressable>
+            </Clicavel>
           </CarrinhoOverlay>
 
           <FavoritosOverlay>

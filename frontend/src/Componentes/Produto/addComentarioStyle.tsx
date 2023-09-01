@@ -62,15 +62,13 @@ export const ComentarioInput = styled.TextInput`
  width:320px;  
  height:70px;  
  flex-wrap:'wrap';  
+ border-color: transparent;
+ border-width: 1px;
+ outline-width: 0;
+ padding: 10px;
 
-
-&::placeholder {
-    color: ${global.colors.Cinza};
-    font-family: ${global.fonts.roboto};
-    font-weight: 200;
-    font-size: 20px;
-  }
-&:focus {
-    outline: none;
-
+ &::placeholder {
+   color: ${global.colors.Cinza}; 
+   opacity: 0.6; 
+ }
 `;

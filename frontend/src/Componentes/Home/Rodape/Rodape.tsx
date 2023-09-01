@@ -15,7 +15,7 @@ const RodapePagHome = ({ value }) => {
         
         <NãoSelecionado> 
 
-          <Clicavel  onPress={() => navigation.navigate('Home' as never)}>
+          <Clicavel  onPress={() => navigation.navigate('Home' as never, {value:1})}>
             {AbaSelecionada === 1 ?
             <Selecionado>
             <Home source={require('../../../../assets/HomeIcone.png')} />   

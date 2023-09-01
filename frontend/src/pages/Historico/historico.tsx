@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import RodapePagHome from '../../Componentes/Home/Rodape/Rodape';
-import {Container, Clicavel,VoltarIMG,PedidoSituaçãoTexto,BaixoPedido,Localizacao,
-    Total,DivisorContainer,AutorLivro,TopoPedido,ConteudoPedido,TituloLivro,QuantidadeLivros,
-    PedidoContainer,PedidoDataTexto,PedidoHorizontal,PedidoNumTexto,
-    PedidoStatusTexto,PrecoLivro,PrecoTotal,CabeçalhoContainer,HorizontalContainer,BolsaIMG,IndicadorPonto,
-     HistoricoText,FavoritosContainer,TituloText,RostoIMG,MensagemFavoritos,MensagemFavoritosTextG,
-     MensagemFavoritosTextP, Rodape,LocalizacaoIMG} from './style';
+import {Container, Clicavel,VoltarIMG,PedidoSituaçãoTexto,BaixoPedido,Localizacao, Total,DivisorContainer,AutorLivro,TopoPedido,ConteudoPedido,TituloLivro,QuantidadeLivros, PedidoContainer,PedidoDataTexto,PedidoHorizontal,PedidoNumTexto, PedidoStatusTexto,PrecoLivro,PrecoTotal,CabeçalhoContainer,HorizontalContainer,BolsaIMG,IndicadorPonto, HistoricoText,FavoritosContainer,TituloText,RostoIMG,MensagemFavoritos,MensagemFavoritosTextG, MensagemFavoritosTextP, Rodape,LocalizacaoIMG} from './style';
 
 export default function Historico() {
     const navigation = useNavigation();
@@ -17,17 +12,17 @@ export default function Historico() {
         <Container>
               <CabeçalhoContainer>
                 <HorizontalContainer>
-                    <Clicavel onPress={() => navigation.navigate('Home' as never)}>
+                    <Clicavel onPress={() => navigation.navigate('Home' as never, {value:1})}>
                         <VoltarIMG source={require('../../../assets/SetaVoltar.png' )} />
                     </Clicavel>
                     <FavoritosContainer>
-                    <Clicavel onPress={() => navigation.navigate('Bolsa' as never)}>
+                    <Clicavel onPress={() => navigation.navigate('Bolsa' as never,{comprar:true})}>
                         <TituloText>Meus Pedidos</TituloText>
                     </Clicavel>
                         <HistoricoText>Histórico</HistoricoText>
                     </FavoritosContainer>
                     {BolsaAtiva && <IndicadorPonto />}
-                    <Clicavel onPress={() => navigation.navigate('Bolsa' as never)}>
+                    <Clicavel onPress={() => navigation.navigate('Bolsa' as  never,{comprar:true})}>
                         <BolsaIMG source={require('../../../assets/Bolsa.png')} />
                     </Clicavel>
                 </HorizontalContainer>
