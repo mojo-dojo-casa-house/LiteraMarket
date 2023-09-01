@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import styles from './style';
-import { View,TouchableOpacity , Pressable, Image,Text  } from 'react-native';
+import { CabecalhoContainer, Container,RostoIMG,Clicavel, Footer, MensagemFavoritosTextG, MensagemFavoritosTextP, HorizontalConteiner, VoltarIMG, Bolinha,FavoritosConteiner,TituloText, BolsaIMG, FavsIMG,MeioConteiner,MensagemFavoritos, NumItensText} from './style';
 import { useNavigation } from '@react-navigation/native';
-import RodapePagHome from '../../Componentes/Home/Rodape';
+import RodapePagHome from '../../Componentes/Home/Rodape/Rodape';
 import FiltroFavoritos from '../../Componentes/Favoritos/Filtro';
 export default function Favoritos() {
     const navigation = useNavigation();
@@ -16,41 +15,41 @@ export default function Favoritos() {
       };
    
     return (
-        <View style={styles.container}>
-            <View style={styles.cabeçalhoContainer}>
-                <View style={styles.horizontalConteiner}>
-                    <Pressable onPress={() => navigation.navigate('Home')}>
-                        <Image source={require('../../../assets/SetaVoltar.png')} style={styles.VoltarIMG} />
-                    </Pressable>
-                    <View style={styles.favoritosConteiner}>
-                        <Text style={styles.tituloText}>Favoritos</Text>
-                    </View>
-                    <View>
-                        {BolsaAtiva&&<View style={styles.bolinha}></View>}
-                        <Pressable onPress={() => navigation.navigate('Bolsa')}>
-                        <Image source={require('../../../assets/Bolsa.png')} style={styles.bolsaIMG} />
-                        </Pressable>
-                    </View>
-                </View>
-                 <View style={styles.meioConteiner}>
-                            <Image source={require('../../../assets/Favoritos/favs.png')} style={styles.favsIMG} />
-                            <Text style={styles.numItensText}>4 Itens</Text>
-                        </View>
+        <Container>
+            <CabecalhoContainer>
+                <HorizontalConteiner>
+                    <Clicavel onPress={() => navigation.navigate('Home' as never)}>
+                        <VoltarIMG source={require('../../../assets/SetaVoltar.png')} />
+                    </Clicavel>
+                    <FavoritosConteiner>
+                        <TituloText>Favoritos</TituloText>
+                    </FavoritosConteiner>
+                   
+                    {BolsaAtiva&&<Bolinha></Bolinha>}
+                    <Clicavel onPress={() => navigation.navigate('Bolsa' as never)}>
+                    <BolsaIMG source={require('../../../assets/Bolsa.png')}  />
+                    </Clicavel>
+                    
+                </HorizontalConteiner>
+                 <MeioConteiner>
+                            <FavsIMG source={require('../../../assets/Favoritos/favs.png')}/>
+                            <NumItensText>4 Itens</NumItensText>
+                        </MeioConteiner>
                 
-            </View>
+            </CabecalhoContainer>
             <FiltroFavoritos/>
 
             {Mensagem &&
-            <View style={styles.mensagemFavoritos}>
-            <Image source={require('../../../assets/Favoritos/caraTriste.png')} style={styles.rostoIMG} />
-                <Text style={styles.mensagemFavoritosTextG}>Você não tem Favoritos</Text>
-                <Text style={styles.mensagemFavoritosTextP}>Adicione um Item aos seus Favoritos</Text>
-            </View>}
+            <MensagemFavoritos>
+            <RostoIMG source={require('../../../assets/Favoritos/caraTriste.png')} />
+                <MensagemFavoritosTextG>Você não tem Favoritos</MensagemFavoritosTextG>
+                <MensagemFavoritosTextP>Adicione um Item aos seus Favoritos</MensagemFavoritosTextP>
+            </MensagemFavoritos>}
 
-            <View style={styles.footer}>           
+            <Footer>           
                 <RodapePagHome value={2}/>
-            </View>
-        </View>
+            </Footer> 
+        </Container>
        
     );
 }

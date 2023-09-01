@@ -53,7 +53,11 @@ Users.associate = (models) => {
         as: 'UserFavorite',
         foreignKey: 'UserId'
     });
-    Users.hasMany(models.Comments);
+    Users.belongsToMany(models.Books, {
+        through: 'Comments',
+        as: 'Commentary',
+        foreignKey: 'UserId',
+    });
 }
 
 module.exports = Users;

@@ -1,151 +1,95 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 import global from '../../globalStyles';
 
+export const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  background-color: ${global.colors.BrancoFundo};
+`;
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: global.colors.BrancoFundo,
-    },
-    VoltarIMG:{
-        width: 31,
-        height: 30,
-        marginLeft: 16,
-    },
-    tituloText:{
-        fontSize: 24,
-        fontFamily: global.fonts.roboto,
-        fontWeight: 'bold',
-        color: global.colors.AzulEscuro,
-        
-    },
-    bolinha:{
-        width:10,
-        height:10,
-        backgroundColor: global.colors.Azul,
-        borderRadius:100,
-        position:'absolute',
-        right:12,
-        top:3,
-        zIndex:1,
-    },
-    
-    footer: {
-        position: 'fixed',
-        bottom:0,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    cabeçalhoContainer:{
-        height:88,
-        width:'100%',
-        backgroundColor: global.colors.Branco,
-        borderBottomWidth: 1,
-        borderColor: global.colors.Cinza,
+export const ImagemVoltar = styled.Image`
+  width: 31px;
+  height: 30px;
+  margin-left: 16px;
+`;
 
-        
+export const TextoTitulo = styled.Text`
+  font-size: 24px;
+  font-family: ${global.fonts.roboto};
+  font-weight: bold;
+  color: ${global.colors.AzulEscuro};
+`;
 
-    },
-    horizontalConteiner:{
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent: 'space-between',
-        marginTop:16,
-     
-    },
-    meioConteiner:{
-        marginTop:5,
-        flexDirection:'row',
-        alignContent:'center',
-        justifyContent:'center',
-       
-    },
-    favoritosConteiner:{
-        flexDirection:'column',
-        alignItems:'center',
-        
-    },
-    bolsaIMG:{
-        width:25,
-        height:28,
-        marginRight:16,
-    },
-    favsIMG:{
-        width:16,
-        height:14,
-        marginRight:5,
-    },
-    rostoIMG:{
-        width:43,
-        height:43,
+export const IndicadorPonto = styled.View`
+  width: 10px;
+  height: 10px;
+  background-color: ${global.colors.Azul};
+  border-radius: 100px;
+  position: absolute;
+  right: 12px;
+  top: 3px;
+  z-index: 1;
+`;
 
-    },
-    numItensText:{
-        fontFamily: global.fonts.roboto,
-        fontSize: 16,
-        color: global.colors.Cinza
-    },
-    barraCabeçalho:{
-        height:1,
-        width:'100%',
-        backgroundColor: global.colors.Cinza,
-    },
-    mensagemFavoritos:{
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginTop:40,
-        position: 'absolute',
-        top: '15%',
-    },
-    mensagemFavoritosTextG:{
-        fontSize: 32,
-        color: global.colors.AzulEscuro,
-        fontFamily: global.fonts.roboto,
-        fontWeight:'200',
-    },
-     mensagemFavoritosTextP:{
-        fontSize: 16,
-        color: global.colors.Roxo,
-        fontFamily: global.fonts.roboto,
-        fontWeight:'200',
-    },
-    categoriaConteiner:{
-        alignItems:'center',
-        justifyContent:'center',
-        marginTop:10,
-        marginLeft:10,
-        width:177,
-        height: 110,
-        borderRadius:16,
-        backgroundColor:global.colors.Azul,
-    },
-    iconeIMG:{
-        height:'60%',
-        width:'60%',
-       
-    },
-    categoriaTexto:{
-        textAlign:'center',
-        fontFamily:global.fonts.roboto,
-        fontSize:24,
-        color: global.colors.Branco,
-        fontWeight: 'bold',
-       marginHorizontal:10,
-        
+export const Rodape = styled.View`
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+`;
 
-    },
-    conteinerGeneros:{
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-        marginBottom:90,
-        width:414,
-        paddingHorizontal:16,
-        
-      },
-   
-});
-  
-export default styles;
+export const CabecalhoContainer = styled.View`
+  height: 88px;
+  width: 100%;
+  background-color: ${global.colors.Branco};
+  border-bottom-width: 1px;
+  border-color: ${global.colors.Cinza};
+`;
+
+export const ContainerHorizontal = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+`;
+
+export const FavoritosContainer = styled.View`
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ImagemBolsa = styled.Image`
+  width: 25px;
+  height: 28px;
+  margin-right: 16px;
+`;
+
+export const ContainerCategoria = styled.Pressable`
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 177px;
+  height: 110px;
+  border-radius: 16px;
+  background-color: ${global.colors.Azul};
+`;
+
+export const TextoCategoria = styled.Text`
+  text-align: center;
+  font-family: ${global.fonts.roboto};
+  font-size: 24px;
+  color: ${global.colors.Branco};
+  font-weight: bold;
+  margin-horizontal: 10px;
+`;
+
+export const ContainerGeneros = styled.View`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 90px;
+  width: 414px;
+  padding-horizontal: 16px;
+`;

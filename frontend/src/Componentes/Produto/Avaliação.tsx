@@ -1,6 +1,36 @@
 import React, { useState } from 'react';
 import { View,Image, Text, StyleSheet, Pressable } from 'react-native';
+
+import styled from 'styled-components/native';
 import global from '../../globalStyles';
+
+export const Container = styled.View`
+  width:112px; 
+  height:22px; 
+  flex-direction: row;   
+  margin-bottom:6px; 
+  margin-left:10px;
+`;
+
+export const EstrelasIMG = styled.Image`
+  width:20px; 
+  height:22px;  
+`;
+
+export const Button = styled.Pressable`
+  width:20px; 
+  height:22px;  
+  margin-right:8px; 
+`;
+
+export const Texto = styled.Text`
+ margin-top:4px; 
+ font-family:${global.fonts.roboto}; 
+ margin-left:10px; 
+ color:${global.colors.Branco}; 
+`;
+
+
 
 const Avaliação = () => {
 
@@ -22,54 +52,27 @@ const notasZeroouUm = (valor) => {
 };
 
   return (
-    <View style={styles.Container}>
-        
-        <Pressable onPress={() => notasZeroouUm(Zero)} style={styles.button}>   
-        <Image source={Nota <= 0 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} style={styles.EstrelasIMG} />
-        </Pressable>
-        <Pressable onPress={() => handlePress(2)} style={styles.button}>  
-        <Image source={Nota <= 1 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} style={styles.EstrelasIMG} />     
-        </Pressable>
-        <Pressable onPress={() => handlePress(3)} style={styles.button}>       
-        <Image source={Nota <= 2 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} style={styles.EstrelasIMG} />
-        </Pressable>
-        <Pressable onPress={() => handlePress(4)} style={styles.button}>    
-        <Image source={Nota <= 3 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} style={styles.EstrelasIMG} />  
-        </Pressable>
-        <Pressable onPress={() => handlePress(5)} style={styles.button}>    
-        <Image source={Nota <= 4 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} style={styles.EstrelasIMG} />  
-        </Pressable>
-        <Text style={styles.texto}>{Nota}.0</Text>
- 
-    </View>
+    <Container>
+      <Button onPress={() => notasZeroouUm(Zero)}>   
+        <EstrelasIMG source={Nota <= 0 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} />
+      </Button>
+      <Button onPress={() => handlePress(2)}>  
+        <EstrelasIMG source={Nota <= 1 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} />     
+      </Button>
+      <Button onPress={() => handlePress(3)}>       
+        <EstrelasIMG source={Nota <= 2 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} />
+      </Button>
+      <Button onPress={() => handlePress(4)}>    
+        <EstrelasIMG source={Nota <= 3 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} />  
+      </Button>
+      <Button onPress={() => handlePress(5)}>    
+        <EstrelasIMG source={Nota <= 4 ?  require('../../../assets/EstrelaUnica.PNG') : require('../../../assets/EstrelaUnicaAtiva.PNG')} />  
+      </Button>
+      <Texto>{Nota}.0</Texto>
+    </Container>
 );
 }
 
-const styles = StyleSheet.create({
-
-Container:{
-    width:112,
-    height:22,
-    flexDirection:'row',   
-    marginBottom: 6,
-}, 
-EstrelasIMG:{
-    width: 20,
-    height: 22,
-},
-button:{
-    width: 20,
-    height: 22,
-    marginRight:8,
-},
-texto:{
-    marginTop:4,
-    fontFamily: global.fonts.roboto,
-    marginLeft:10,
-    color: global.colors.Branco,
-},
-
-});
 
 
 

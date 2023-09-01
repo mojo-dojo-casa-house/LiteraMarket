@@ -1,7 +1,10 @@
+const { Op } = require('sequelize');
+const Auth = require('../config/auth');
 const authModel = require('../models/Auth');
 const avaliationModel = require('../models/Avaliation');
 const usersModel = require('../models/Users');
 const fsPromise = require('fs').promises;
+
 
 const create = async (req, res) => {
     try {
@@ -9,9 +12,11 @@ const create = async (req, res) => {
             email: req.body.email,
             name: req.body.name
         });
+        const { password } = req.body;
+        const codedPass = Auth.generatePassword(password);
         await authModel.create({
-            hash: req.body.hash,
-            salt: req.body.salt,
+            hash: codedPass.hash,
+            salt: codedPass.salt,
             UserId: user.id,
         })
         return res.status(201).json({
@@ -178,6 +183,7 @@ async function removeUserImage(request, response)
 
 };
 
+
 module.exports = {
     create,
     index,
@@ -189,4 +195,5 @@ module.exports = {
     changePass,
     addUserImage,
     removeUserImage
+
 }
