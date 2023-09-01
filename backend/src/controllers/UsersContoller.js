@@ -127,7 +127,7 @@ async function addUserImage(request, response)
         }
 
         if(!request.file) {
-            return res.status(500).json({message: "Não foi feito o upload de nenhuma imagem"});
+            return response.status(500).json({message: "Não foi feito o upload de nenhuma imagem"});
         }
 
         const path = process.env.APP_URL + "/uploads/image/" + request.file.filename;
@@ -154,11 +154,11 @@ async function removeUserImage(request, response)
         const user = await User.findByPk(id);
 
         if(!user) {
-            return res.status(500).json({message: "Usuário não encontrado"});
+            return response.status(500).json({message: "Usuário não encontrado"});
         }
 
         if(!user.image) {
-            return res.status(500).json({message: "Nenhuma imagem foi encontrada"});
+            return response.status(500).json({message: "Nenhuma imagem foi encontrada"});
         }
 
         const pathDb = user.image.split("/").slice(-1)[0]
