@@ -7,7 +7,6 @@ export default function Favoritos() {
     const navigation = useNavigation();
     const [Mensagem, setMensagem] = useState(false);
     const [BolsaAtiva, setBolsaAtiva] = useState(true);
-
     const handleMensagem = (valor) => {
         if (valor>0){
         setMensagem(true);
@@ -18,7 +17,7 @@ export default function Favoritos() {
         <Container>
             <CabecalhoContainer>
                 <HorizontalConteiner>
-                    <Clicavel onPress={() => navigation.navigate('Home' as never)}>
+                    <Clicavel onPress={() => navigation.navigate('Home' as never, {value:1})}>
                         <VoltarIMG source={require('../../../assets/SetaVoltar.png')} />
                     </Clicavel>
                     <FavoritosConteiner>

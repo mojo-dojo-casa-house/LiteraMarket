@@ -149,6 +149,19 @@ export const CupomIMG = styled.Image`
     margin-left: 16px;
 `;
 
+export const CupomOverlay = styled.Modal`
+  
+`;
+
+
+export const Overlay = styled.Modal`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: ${global.colors.PretoTransparente};
+
+    `;
+
 export const CupomTextContainer = styled.View`
     flex-direction: column;
     margin-left: 8px;
@@ -199,7 +212,7 @@ export const ValoresTextNum = styled.Text`
     font-weight: 500;
 `;
 
-export const ComprarBotao = styled.TouchableOpacity`
+export const ComprarBotao = styled.Pressable`
     background-color: ${global.colors.Azul};
     height: 56px;
     width: 382px;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Container,ContainerBanner,BannerPrimario,BannerSecundario,BotaoBarraDireita,BotaoBarraDireitaVisivel,BotaoBarraEsquerda,BotaoBarraEsquerdaVisivel,SetaIMG, Clicavel} from './BannerStyle';
+import {Container,ContainerBanner,BannerPrimario,BannerSecundario,BotaoBarraDireita,BotaoBarraEsquerda,SetaIMG, Clicavel} from './BannerStyle';
 
 
 const Banner = () => {

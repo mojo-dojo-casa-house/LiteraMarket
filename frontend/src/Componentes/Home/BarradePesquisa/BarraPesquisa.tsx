@@ -1,7 +1,5 @@
 import React from 'react';
-import { View,Image, TextInput, StyleSheet } from 'react-native';
 import {Conteiner,BuscaIcon,BuscaIconConteiner,BuscaInput} from './BarraPesquisaStyle';
-
 
 
 const BarraPesquisa = () => {

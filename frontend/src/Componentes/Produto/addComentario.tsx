@@ -3,10 +3,6 @@ import {ComentarioContainer,ComentarioHorizontalContainer,ComentarioInput,Coment
 import Avaliação from './Avaliação';
 
 
-
-
-
-
 const FazerComentario = () => {
   return (
     <ComentarioContainer>

@@ -1,6 +1,9 @@
 import global from '../../globalStyles';
 import styled from 'styled-components/native';
 
+export const Container = styled.View`
+ 
+`;
 export const VerticalConteiner = styled.View`
   flex-direction:row;  
   align-items:center;   

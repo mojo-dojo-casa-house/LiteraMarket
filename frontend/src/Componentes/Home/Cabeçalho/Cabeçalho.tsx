@@ -1,10 +1,10 @@
 import React from 'react';
 import {Circulo,Clicavel, Conteiner,Menu,LogoContainer,Perfil,PerfilIMG,Logo} from './CabaçalhoStyle';
 
-const Cabecalho= ({onPerfilClick}) => {
+const Cabecalho= ({onPerfilClick, onMenuClick}) => {
   return (
     <Conteiner>
-      <Menu>
+      <Menu onPress={onMenuClick}>
         <Circulo></Circulo>
         <Circulo></Circulo>
         <Circulo></Circulo>

@@ -126,7 +126,7 @@ border-radius: 100px;
 margin-left:51px;
 margin-right:51px;
 margin-top:30px;
-margin-bottom:30px;
+
 `;
 
 export const NãoPossuiConta= styled.Text`

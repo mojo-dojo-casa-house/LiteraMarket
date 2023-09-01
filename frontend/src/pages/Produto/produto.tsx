@@ -3,34 +3,13 @@ import { useNavigation } from '@react-navigation/native';
 import RodapePagHome from '../../Componentes/Home/Rodape/Rodape';
 import Comentario from '../../Componentes/Produto/Comentarios';
 import FazerComentario from '../../Componentes/Produto/addComentario';
-import {Container,
-    Rodape,
-    SetaIMG,
-    BolsaIMG,
-    CabecalhoContainer,
-    Voltar,
-    TituloText,
-    ProdutoContainer,
-    ProdutoIMG,
-    InfoConteiner,
-    GeneroProduto,
-    TituloProduto,
-    AutorProduto,
-    Clicavel,
-    PrecoProduto,
-    VerticalConteiner,
-    AvaliacaoValor,
-    EstrelasIMG,
-    CurtidaIMG,
-    BotaoComprar,
-    ImageProduto,
-    Button,
-    BotaoTexto,CarrinhoIMG,
-    DescricaoContainer,DescricaoSelecionadoContainer,DescricaoBarra,DescricaoTituloText,DescricaoText,PerfilConteinier,ComentarioCampo,ComentarioCampoContainer,ComentarioInput,ComentarioTituloConteiner,ComentarioTituloQtd,ComentarioTituloText,PerfilData,PerfilIMG,PerfilInfoConteinier,PerfilLocal,PerfilNome
-} from './style';
+import {Container,Rodape,SetaIMG,BolsaIMG,CabecalhoContainer, TituloText, ProdutoContainer, ProdutoIMG, InfoConteiner, GeneroProduto, TituloProduto, AutorProduto, Clicavel, PrecoProduto, VerticalConteiner, AvaliacaoValor, EstrelasIMG, CurtidaIMG, BotaoComprar, ImageProduto, Button, BotaoTexto,CarrinhoIMG, DescricaoContainer,DescricaoSelecionadoContainer,DescricaoBarra,DescricaoTituloText,DescricaoText,PerfilConteinier,ComentarioCampo,ComentarioCampoContainer,ComentarioInput,ComentarioTituloConteiner,ComentarioTituloQtd,ComentarioTituloText,PerfilData,PerfilIMG,PerfilInfoConteinier,PerfilLocal,PerfilNome } from './style';
+import { useRoute } from '@react-navigation/native';
 
 export default function Produto() {
     const navigation = useNavigation();  
+    const route = useRoute();
+    const { favorito } = route.params || {};
 
     const [ProdutosData, setProdutosData] = useState([
         {
@@ -41,7 +20,7 @@ export default function Produto() {
           preco: 'R$ 25.98',
           avaliação: 5,
           image: require('../../../assets/LivroIMG.png'),
-          favorito: false,
+          favorito: favorito,
         },
       ]);
 
@@ -140,7 +119,7 @@ const getEstrelasIMG = (avaliação) => {
             </InfoConteiner>
             ))}
 
-            < BotaoComprar onPress={() => navigation.navigate('Bolsa' as never)}>
+            < BotaoComprar onPress={() => navigation.navigate('Bolsa' as never, {comprar:true})}>
                 <BotaoTexto>Add ao Carrinho</BotaoTexto>
                 <CarrinhoIMG source={require('../../../assets/CarrinhoBranco.png')}/>
             </ BotaoComprar>
@@ -151,8 +130,6 @@ const getEstrelasIMG = (avaliação) => {
             </ComentarioTituloConteiner>
 
             <ComentarioCampoContainer>
-                <Comentario/>
-                <Comentario/>
                 <Comentario/>
             </ComentarioCampoContainer>
 

@@ -1,36 +1,49 @@
-import React from 'react';
-import { View,Image, TextInput, StyleSheet } from 'react-native';
-import {BolaAzul, BotãoLogin, BotãoTexto, Clicavel, ConecteBarra, ConecteCom, Conteiner,ConteinerConecteHorizontal,ConteinerHorizontal,ConteinerInput,CrieConta,EsqueciaSenha,Icon,IconConteiner,Input, NãoPossuiConta, SocialIcon} from './style';
+import React, { useState } from 'react';
+import {BolaAzul, BotãoLogin, BotãoTexto, ConecteBarra, ConecteCom, Conteiner,ConteinerConecteHorizontal,ConteinerHorizontal,ConteinerInput,Icon,IconConteiner,Input, SocialIcon} from './style';
 import { useNavigation } from '@react-navigation/native';
 
  
 const CadastroForm = () => {
   const navigation = useNavigation();
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+
+  const handleFormSubmit = () => {
+
+    console.log('Nome:', nome);
+    console.log('Email:', email);
+    console.log('Senha:', senha);
+
+    navigation.navigate('Login', { Nome: nome,Email: email, Senha: senha });
+  };
+
   return (
     <Conteiner>
       <ConteinerInput>
       <IconConteiner>
         <Icon source={require('../../../assets/Login/User.png')} />
       </IconConteiner>
-      <Input placeholder="Nome" onChangeText={text => console.log(text)} />
+      <Input placeholder="Nome" onChangeText={text => setNome(text)} value={nome} />
       </ConteinerInput>
 
       <ConteinerInput>
       <IconConteiner>
         <Icon source={require('../../../assets/Login/email.png')} />
       </IconConteiner>
-      <Input placeholder="E-mail" onChangeText={text => console.log(text)} />
+      <Input placeholder="E-mail" onChangeText={text => setEmail(text)} value={email} />
       </ConteinerInput>
 
       <ConteinerInput>
       <IconConteiner>
         <Icon source={require('../../../assets/Login/Lock.png')} />
       </IconConteiner>
-      <Input placeholder="Senha" onChangeText={text => console.log(text)} />
+      <Input placeholder="Senha" onChangeText={text => setSenha(text)} value={senha} />
       </ConteinerInput>
      
 
-      <BotãoLogin onPress={() => navigation.navigate('Home' as never)}> <BotãoTexto>Entrar</BotãoTexto> </BotãoLogin>
+      <BotãoLogin onPress={handleFormSubmit}> <BotãoTexto>Entrar</BotãoTexto> </BotãoLogin>
 
       <ConteinerConecteHorizontal>
         <ConecteBarra></ConecteBarra>

@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import {FavIMG,VerticalContainer, QtdContainer,RedondoContainer,QtdValorText,Container,PreçoProduto,Produto,ImgProduto,FavoritosOverlay,Button,ImgProdutoEstrela,GeneroProduto,AutorProduto,TituloProduto, Clicavel,}from './ThumbnailProdutoStyle';
 
 
-const ProdutoBolsaMiniatura = () => {
+
+
+const ProdutoBolsaMiniatura = ({setPreçoTotal}) => {
   const navigation = useNavigation();
   const [QtdProdutos, setQtdProdutos] = useState(0);
+  const [TotalPrice, setTotalPrice] = useState(0);
+
+  
+  useEffect(() => {
+    setPreçoTotal(TotalPrice);
+  }, [TotalPrice]);
 
   const QtdAumentar = () => {
     setQtdProdutos(QtdProdutos + 1);
+    const product = ProdutosData[0];
+    setTotalPrice(TotalPrice + product.preco); 
   };
+  
   const QtdDiminuir = () => {
     if (QtdProdutos > 0) {
       setQtdProdutos(QtdProdutos - 1);
+      const product = ProdutosData[0]; 
+      setTotalPrice(TotalPrice -  product.preco); 
     }
   };
 
@@ -29,7 +42,7 @@ const ProdutoBolsaMiniatura = () => {
       genero: 'Ficção',
       titulo: 'A Revolução dos Bichos',
       autor: 'George Orwell',
-      preco: '25.98',
+      preco: 25.98,
       avaliação: 4,
       image: require('../../../assets/LivroIMG.png'),
       favorito: false,
