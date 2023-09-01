@@ -7,6 +7,9 @@ const port = process.env.PORT;
 //const cors = require('cors');
 const routes = require('./src/routes/routes');
 
+const passport = require('passport');
+require('./src/middlewares/jwtPassport')(passport);
+app.use(passport.initialize())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
