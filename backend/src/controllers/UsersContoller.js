@@ -130,7 +130,7 @@ async function addUserImage(request, response)
             return response.status(500).json({message: "Não foi feito o upload de nenhuma imagem"});
         }
 
-        const path = process.env.APP_URL + "/uploads/image/" + request.file.filename;
+        const path = process.env.APP_URL + "/uploads/userImage/" + request.file.filename;
 
         await user.update({
             image: path,
@@ -151,7 +151,7 @@ async function removeUserImage(request, response)
         // const payload = Auth.decodeJwt(token);
         const { id } = request.params;
 
-        const user = await User.findByPk(id);
+        const user = await usersModel.findByPk(id);
 
         if(!user) {
             return response.status(500).json({message: "Usuário não encontrado"});
@@ -162,7 +162,7 @@ async function removeUserImage(request, response)
         }
 
         const pathDb = user.image.split("/").slice(-1)[0]
-        const photoImage = path.join(__dirname, '..', '..', 'uploads/images', pathDb);
+        const photoImage = path.join(__dirname, '..', '..', '/uploads/userImage/', pathDb);
 
         await fsPromise.unlink(photoImage);
 

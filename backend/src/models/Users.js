@@ -14,6 +14,9 @@ const Users = sequelize.define('Users', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    image: {
+        type: DataTypes.STRING
+    },
 })
 
 Users.associate = (models) => {

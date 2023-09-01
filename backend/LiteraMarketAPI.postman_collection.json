@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "9c037e79-409c-4b2c-bc34-04cfbba91dcc",
+		"_postman_id": "91eed07d-d7b6-4fad-ab1b-6bd72659ca0f",
 		"name": "LiteraMarketAPI",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28170985"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -40,13 +39,9 @@
 							]
 						},
 						"url": {
-							"raw": "http://192.168.0.139:3333/user",
-							"protocol": "http",
+							"raw": "localhost:3333/user",
 							"host": [
-								"192",
-								"168",
-								"0",
-								"139"
+								"localhost"
 							],
 							"port": "3333",
 							"path": [
@@ -62,13 +57,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://192.168.0.139:3333/user",
-							"protocol": "http",
+							"raw": "localhost:3333/user",
 							"host": [
-								"192",
-								"168",
-								"0",
-								"139"
+								"localhost"
 							],
 							"port": "3333",
 							"path": [
@@ -249,6 +240,58 @@
 								"user",
 								"2",
 								"changepass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadImageUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/danil/Downloads/laptop-3087585_1280.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3333/private/user/addImage/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"private",
+								"user",
+								"addImage",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteImageUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/private/user/removeImage/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"private",
+								"user",
+								"removeImage",
+								"1"
 							]
 						}
 					},
